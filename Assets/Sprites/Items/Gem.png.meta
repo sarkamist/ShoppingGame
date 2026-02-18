@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 21b0ed332ce2c6146bff7dc013dc526f
+guid: d0ba6ce203d80064dbf4c2c836d5f05d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4080278737599844964
-    second: Gem_0
+      213: -3725907323722994064
+    second: gem-item_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gem_0
+      name: gem-item_0
       rect:
         serializedVersion: 2
         x: 19
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9d28cc3b10ff57c0800000000000000
-      internalID: -4080278737599844964
+      spriteID: 07ee67f970bea4cc0800000000000000
+      internalID: -3725907323722994064
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gem_0: -4080278737599844964
+      gem-item_0: -3725907323722994064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

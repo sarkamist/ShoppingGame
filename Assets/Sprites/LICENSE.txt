@@ -1,0 +1,5 @@
+background.png
+
+Image generated with AI, using SuperGrok.
+
+LICENSE - CC0

@@ -7,12 +7,12 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Title.unity
-    guid: db184c5812bc60f4f99aa5f10ffb979d
+    guid: 15aba33a732888a438e958e11709dddd
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: e56604562484fd14bae00a4fd9d3d815
   - enabled: 1
     path: Assets/Scenes/Ending.unity
-    guid: b8be3be2bfe13624187950aaee3229b9
+    guid: 52905077d34afe64b9c5d7de67e55282
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

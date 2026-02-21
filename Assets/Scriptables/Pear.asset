@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ef6660bf2b0314c813e4d2879a0bfd, type: 3}
+  m_Name: Pear
+  m_EditorClassIdentifier: Assembly-CSharp::ItemFood
+  Name: 'Pear '
+  ImageUI: {fileID: 4321832919896367110, guid: baf76c841e7a1824da0836894460ed7c, type: 3}
+  Description: 
+  Cost: 10
+  IsStackable: 1
+  LifeRestore: 10

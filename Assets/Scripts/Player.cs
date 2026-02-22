@@ -2,21 +2,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerManager : MonoBehaviour, IConsume
+public class Player : MonoBehaviour, IConsume
 {
-    public Inventory PlayerInventory;
     public float Damage = 10.0f;
     public float MaxHealth = 100.0f;
     public float CurrentHealth = 100.0f;
 
-    public Image HealthBarForeground;
-    public TextMeshProUGUI TextHealthBar;
-
+    private Image healthBarForeground;
+    private TextMeshProUGUI textHealth;
     private float maxWidth;
 
     private void Start()
     {
-        maxWidth = HealthBarForeground.rectTransform.rect.width;
+        if (healthBarForeground == null)
+        {
+            healthBarForeground = transform.Find("Foreground").GetComponent<Image>();
+            maxWidth = healthBarForeground.rectTransform.rect.width;
+            textHealth = transform.Find("TextHealth").GetComponent<TextMeshProUGUI>();
+        }
+        
 
         UpdateHealthBar();
     }
@@ -29,10 +33,10 @@ public class PlayerManager : MonoBehaviour, IConsume
     public void UpdateHealthBar()
     {
         float ratio = (float) CurrentHealth / MaxHealth;
-        RectTransform rt = HealthBarForeground.rectTransform;
+        RectTransform rt = healthBarForeground.rectTransform;
 
         rt.sizeDelta = new Vector2(maxWidth * ratio, rt.sizeDelta.y);
-        TextHealthBar.text = $"{CurrentHealth} / {MaxHealth}";
+        textHealth.text = $"{CurrentHealth} / {MaxHealth}";
     }
 
     public void OnHealthBarClick()

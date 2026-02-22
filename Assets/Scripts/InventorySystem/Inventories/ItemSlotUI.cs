@@ -1,7 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ItemSlotUI : MonoBehaviour,
@@ -15,8 +15,8 @@ public class ItemSlotUI : MonoBehaviour,
     public Image SelectedOverlay;
     public TextMeshProUGUI AmountText;
 
-    public static Action<PointerEventData, ItemSlotUI> OnSlotMouseClick;
-
+    private Canvas canvas;
+    private Transform dragParent;
     private int tooltipRequestId;
 
     public void Bind(ItemSlot slot)
@@ -42,10 +42,9 @@ public class ItemSlotUI : MonoBehaviour,
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (ItemSlotModel != null)
-        {
-            OnSlotMouseClick?.Invoke(eventData, this);
-        }
+        if (ShopManager.Instance == null || ItemSlotModel == null) return;
+
+        ShopManager.Instance.OnPointerClick(eventData, this);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -70,48 +69,48 @@ public class ItemSlotUI : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // We need canvas as new UI reference (lazy initialization)
-        //if (!canvas) canvas = GetComponentInParent<Canvas>();
+        if (ItemSlotModel == null) return;
+        if (ShopManager.Instance != null) ShopManager.Instance.ClearSelectedSlot();
+        CursorManager.Instance.ChangeState(CursorState.Drag);
 
-        // Store previous reference position
-        //parent = transform.parent;
-
-        // Change parent of our item to the canvas
-        //transform.SetParent(canvas.transform, true);
-
-        // And set it as last child to be rendered on top of UI
-        //transform.SetAsLastSibling();
+        Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, DragManager.Instance.DragAlpha);
+        DragManager.Instance.Begin(ItemSlotModel.Item.Image, eventData.position);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // Moving object around screen using mouse delta
-        //transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0);
+        DragManager.Instance.Move(eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Find scene objects colliding with mouse point on end dragging
-        //RaycastHit2D hitData = Physics2D.GetRayIntersection(
-        //    Camera.main.ScreenPointToRay(Input.mousePosition));
+        Image.color = Color.white;
+        DragManager.Instance.Hide();
+        CursorManager.Instance.ChangeState(CursorState.Normal);
 
-        //if (hitData)
-        //{
-        //    Debug.Log("Drop over object: " + hitData.collider.gameObject.name);
-        //
-        //    var consumer = hitData.collider.gameObject.GetComponent<IConsume>();
-        //
-        //    if ((consumer != null) && (item is BaseConsumableItem))
-        //    {
-        //        (item as BaseConsumableItem).Use(consumer);
-        //        inventory.UseItem(item);
-        //    }
-        //}
+        if (ItemSlotModel == null) return;
 
-        // Changing parent back to slot
-        //transform.SetParent(parent.transform);
+        var go = eventData.pointerCurrentRaycast.gameObject;
+        Debug.Log("checking hit");
+        if (go == null) return;
 
-        // And centering item position
-        //transform.localPosition = Vector3.zero;
+        Debug.Log(go);
+
+        if (go.GetComponent<Player>() is Player player)
+        {
+            ShopManager.Instance.UseItem(this, player);
+        }
+        else if (go.GetComponent<ItemSlotUI>() is ItemSlotUI itemSlotUI)
+        {
+            if (Inventory == itemSlotUI.Inventory) return;
+
+            ShopManager.Instance.ManageBuySell(this, itemSlotUI.Inventory);
+        }
+        else if (go.GetComponent<InventoryUI>() is InventoryUI inventory)
+        {
+            if (Inventory == inventory) return;
+
+            ShopManager.Instance.ManageBuySell(this, inventory);
+        }
     }
 }

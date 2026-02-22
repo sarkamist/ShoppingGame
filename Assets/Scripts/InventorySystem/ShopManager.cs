@@ -1,9 +1,12 @@
+using System.Collections.Concurrent;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ShopManager : MonoBehaviour
 {
-    public PlayerManager Player;
+    public static ShopManager Instance { get; private set; }
+
+    public Player Player;
     public InventoryUI PlayerInventoryUI;
     public InventoryUI ShopInventoryUI;
     public float BuyCostModifier = 1.0f;
@@ -11,17 +14,13 @@ public class ShopManager : MonoBehaviour
 
     private ItemSlotUI selectedSlotUI;
 
-    private void OnEnable()
+    private void Awake()
     {
-        ItemSlotUI.OnSlotMouseClick += OnSlotMouseClick;
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
     }
 
-    private void OnDisable()
-    {
-        ItemSlotUI.OnSlotMouseClick -= OnSlotMouseClick;
-    }
-
-    public void OnSlotMouseClick(PointerEventData eventData, ItemSlotUI itemSlot)
+    public void OnPointerClick(PointerEventData eventData, ItemSlotUI itemSlot)
     {
         if (eventData.button == PointerEventData.InputButton.Left && selectedSlotUI != itemSlot)
         {
@@ -42,64 +41,65 @@ public class ShopManager : MonoBehaviour
 
     public void ClearSelectedSlot()
     {
+        if (selectedSlotUI == null) return;
         selectedSlotUI.SelectedOverlay.enabled = false;
         selectedSlotUI = null;
     }
 
     public void OnBuyClick()
     {
-        if (selectedSlotUI == null || selectedSlotUI.Inventory != ShopInventoryUI) return;
+        if (selectedSlotUI == null) return;
 
-        BaseItem item = selectedSlotUI.ItemSlotModel.Item;
-        int itemCost = Mathf.FloorToInt(item.Cost * BuyCostModifier);
-
-        Debug.Log("Buying...");
-        if (PlayerInventoryUI.InventoryModel.Coins >= itemCost)
-        {
-            ShopInventoryUI.InventoryModel.ChangeCoins(itemCost);
-            ShopInventoryUI.InventoryModel.RemoveItem(selectedSlotUI.ItemSlotModel);
-            PlayerInventoryUI.InventoryModel.ChangeCoins(-itemCost);
-            PlayerInventoryUI.InventoryModel.AddItem(item);
-
-            ClearSelectedSlot();
-        }
-        else
-        {
-            Debug.Log($"Not enough Player coins to buy {item.NameKey}!");
-        }
+        ManageBuySell(selectedSlotUI, PlayerInventoryUI);
     }
 
     public void OnSellClick()
     {
-        if (selectedSlotUI == null || selectedSlotUI.Inventory != PlayerInventoryUI) return;
+        if (selectedSlotUI == null) return;
 
-        BaseItem item = selectedSlotUI.ItemSlotModel.Item;
-        int itemCost = Mathf.FloorToInt(item.Cost * SellCostModifier);
+        ManageBuySell(selectedSlotUI, ShopInventoryUI);
+    }
 
-        Debug.Log("Selling...");
-        if (ShopInventoryUI.InventoryModel.Coins >= itemCost)
+    public void ManageBuySell(ItemSlotUI originSlotUI, InventoryUI targetInventoryUI)
+    {
+        InventoryUI originInventoryUI = originSlotUI.Inventory;
+        BaseItem item = originSlotUI.ItemSlotModel.Item;
+
+        int itemCost = 0;
+        if (originInventoryUI == ShopInventoryUI && targetInventoryUI == PlayerInventoryUI)
         {
-            ShopInventoryUI.InventoryModel.ChangeCoins(-itemCost);
-            ShopInventoryUI.InventoryModel.AddItem(item);
-            PlayerInventoryUI.InventoryModel.ChangeCoins(+itemCost);
-            PlayerInventoryUI.InventoryModel.RemoveItem(selectedSlotUI.ItemSlotModel);
+            itemCost = Mathf.FloorToInt(item.Cost * BuyCostModifier);
+        }
+        else if (originInventoryUI == PlayerInventoryUI && targetInventoryUI == ShopInventoryUI)
+        {
+            itemCost = Mathf.FloorToInt(item.Cost * SellCostModifier);
+        }
+
+        if (itemCost != 0)
+        {
+            originInventoryUI.InventoryModel.ChangeCoins(itemCost);
+            originInventoryUI.InventoryModel.RemoveItem(originSlotUI.ItemSlotModel);
+            targetInventoryUI.InventoryModel.ChangeCoins(-itemCost);
+            targetInventoryUI.InventoryModel.AddItem(item);
 
             ClearSelectedSlot();
         }
-        else
-        {
-            Debug.Log($"Not enough Shop coins to sell {item.NameKey}!");
-        }
+        
     }
 
     public void OnUseClick()
     {
-        if (selectedSlotUI == null || selectedSlotUI.Inventory != PlayerInventoryUI) return;
+        if (selectedSlotUI == null) return;
 
-        if (selectedSlotUI.ItemSlotModel.Item is BaseConsumableItem consumable)
+        UseItem(selectedSlotUI, Player);
+    }
+
+    public void UseItem(ItemSlotUI originSlotUI, IConsume consumer)
+    {
+        if (originSlotUI.Inventory == PlayerInventoryUI && originSlotUI.ItemSlotModel.Item is BaseConsumableItem consumable)
         {
-            PlayerInventoryUI.InventoryModel.RemoveItem(selectedSlotUI.ItemSlotModel);
-            consumable.Use(Player);
+            originSlotUI.Inventory.InventoryModel.RemoveItem(originSlotUI.ItemSlotModel);
+            consumable.Use(consumer);
 
             ClearSelectedSlot();
         }

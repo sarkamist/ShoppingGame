@@ -15,13 +15,5 @@ MonoBehaviour:
   MaxSlots: 20
   Slots:
   - Item: {fileID: 11400000, guid: 08ba4cc30eae9024282c30b0aa49842d, type: 2}
-    Amount: 6
-  - Item: {fileID: 11400000, guid: 8dfd6ba201bec494dbbbd2d2b1902294, type: 2}
-    Amount: 8
-  - Item: {fileID: 11400000, guid: 8dfd6ba201bec494dbbbd2d2b1902294, type: 2}
-    Amount: 8
-  - Item: {fileID: 11400000, guid: 8dfd6ba201bec494dbbbd2d2b1902294, type: 2}
-    Amount: 8
-  - Item: {fileID: 11400000, guid: 8dfd6ba201bec494dbbbd2d2b1902294, type: 2}
-    Amount: 8
-  Coins: 99964
+    Amount: 1
+  Coins: 504

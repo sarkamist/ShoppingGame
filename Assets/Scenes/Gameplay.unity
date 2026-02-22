@@ -268,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -797,56 +797,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376696489}
   m_CullTransparentMesh: 1
---- !u!1 &412994378
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 412994380}
-  - component: {fileID: 412994379}
-  m_Layer: 0
-  m_Name: PlayerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &412994379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412994378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe9ab300e03871441b6f546b8df6065f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
-  PlayerInventory: {fileID: 11400000, guid: d06e8d195c9185a4fac66dd162e04fe3, type: 2}
-  Damage: 10
-  MaxHealth: 100
-  CurrentHealth: 100
-  HealthBarForeground: {fileID: 1454600177}
-  TextHealthBar: {fileID: 1883180416}
---- !u!4 &412994380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412994378}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.60839, y: -2.40994, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511679173
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82394c78655245489e1aab61365c4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Player: {fileID: 412994379}
+  Player: {fileID: 523666844}
   PlayerInventoryUI: {fileID: 1971635132}
   ShopInventoryUI: {fileID: 62576001}
   BuyCostModifier: 1
@@ -1068,8 +1018,9 @@ GameObject:
   - component: {fileID: 523666842}
   - component: {fileID: 523666841}
   - component: {fileID: 523666843}
+  - component: {fileID: 523666844}
   m_Layer: 5
-  m_Name: HealthBar
+  m_Name: PlayerHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1151,7 +1102,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 412994379}
+        - m_Target: {fileID: 523666844}
           m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
           m_MethodName: OnHealthBarClick
           m_Mode: 1
@@ -1163,6 +1114,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &523666844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523666839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9ab300e03871441b6f546b8df6065f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  Damage: 10
+  MaxHealth: 100
+  CurrentHealth: 100
 --- !u!1 &528813200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   NameText: {fileID: 1835864593}
   DescriptionText: {fileID: 1483728228}
-  ScreenOffset: {x: 210, y: -90}
+  ScreenOffset: {x: 190, y: -100}
   EdgePadding: 8
 --- !u!1 &827637566
 GameObject:
@@ -2766,6 +2732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc0cedcb5287a2428dda4b9a977a04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  NormalSprite: {fileID: 21300000, guid: 582378f0e22a5074caf4d5a4b2295015, type: 3}
+  DragSprite: {fileID: 21300000, guid: d3e4f468c1861f44fa63925785a52319, type: 3}
 --- !u!114 &1402302579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3285,7 +3253,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 528813201}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.8133333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3340,7 +3308,7 @@ GameObject:
   - component: {fileID: 1454600178}
   - component: {fileID: 1454600177}
   m_Layer: 5
-  m_Name: HealthBarForeground
+  m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3827,6 +3795,7 @@ RectTransform:
   - {fileID: 1778100641}
   - {fileID: 1136737018}
   - {fileID: 523666840}
+  - {fileID: 358172508510177337}
   - {fileID: 802455028}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3943,7 +3912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000019073486}
+  m_AnchoredPosition: {x: 0, y: 0.000047683716}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1778100640
@@ -4375,7 +4344,7 @@ GameObject:
   - component: {fileID: 1883180417}
   - component: {fileID: 1883180416}
   m_Layer: 5
-  m_Name: TextHealthBar
+  m_Name: TextHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4414,7 +4383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4424,8 +4393,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b2410ffc06966646a6a98bfda2af73b, type: 2}
-  m_sharedMaterial: {fileID: -4566869796255675030, guid: 5b2410ffc06966646a6a98bfda2af73b,
+  m_fontAsset: {fileID: 11400000, guid: b423ae2fa3b5a38449c2e9cba67419dc, type: 2}
+  m_sharedMaterial: {fileID: 584002005482612512, guid: b423ae2fa3b5a38449c2e9cba67419dc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4456,7 +4425,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4657,7 +4626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4878,6 +4847,57 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!224 &358172508510177337
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206974865451510130}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1546767115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4206974865451510130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358172508510177337}
+  - component: {fileID: 4546156654665070606}
+  m_Layer: 5
+  m_Name: DragManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &4546156654665070606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206974865451510130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39229167b04b5554eb785d771a394a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  GhostImagePrefab: {fileID: 121629807622657807, guid: 1405966b4a029154580b3b32050ba638,
+    type: 3}
+  DragAlpha: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4887,6 +4907,5 @@ SceneRoots:
   - {fileID: 275669679}
   - {fileID: 1196407069}
   - {fileID: 511679176}
-  - {fileID: 412994380}
   - {fileID: 1546767115}
   - {fileID: 1878620947}

@@ -1079,6 +1079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc0cedcb5287a2428dda4b9a977a04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  NormalSprite: {fileID: 21300000, guid: 582378f0e22a5074caf4d5a4b2295015, type: 3}
+  DragSprite: {fileID: 21300000, guid: d3e4f468c1861f44fa63925785a52319, type: 3}
 --- !u!114 &681879560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,7 +1711,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 383561232}
   m_HandleRect: {fileID: 383561231}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

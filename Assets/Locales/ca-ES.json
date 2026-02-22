@@ -7,8 +7,8 @@
         { "key": "ui.title", "value": "La Tenda de la Bruixa" },
         { "key": "ui.ending", "value": "Fi!" },
         { "key": "ui.button.start_game", "value": "Iniciar Joc" },
-        { "key": "ui.button.buy", "value": "<- Comprar" },
-        { "key": "ui.button.sell", "value": "Vendre ->" },
+        { "key": "ui.button.buy", "value": "<-- Comprar" },
+        { "key": "ui.button.sell", "value": "Vendre -->" },
         { "key": "ui.button.use_item", "value": "Utilitzar" },
         { "key": "ui.tooltip.cost_line", "value": "<b>Cost:</b> <color={t:goldColor}>{0} monedes</color>" },
         

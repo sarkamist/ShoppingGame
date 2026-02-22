@@ -4,4 +4,9 @@ using UnityEngine;
 public class Weapon : BaseItem
 {
     public float DamageIncrease;
-}
+
+    public override object[] GetDescriptionFormatArgs()
+    {
+        return new object[] { DamageIncrease };
+    }
+ }

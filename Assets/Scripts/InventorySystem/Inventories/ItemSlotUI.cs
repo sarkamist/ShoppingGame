@@ -52,9 +52,13 @@ public class ItemSlotUI : MonoBehaviour,
     {
         if (TooltipManager.Instance == null || ItemSlotModel == null) return;
 
-        string name = ItemSlotModel.Item.Name;
-        string description = ItemSlotModel.Item.Description;
-        tooltipRequestId = TooltipManager.Instance.Show(name, description);
+        BaseItem item = ItemSlotModel.Item;
+
+        string name = LocalizationManager.Instance.Localize(item.NameKey);
+        object[] formatArgs = item.GetDescriptionFormatArgs();
+        string cost = LocalizationManager.Instance.LocalizeWithFormat("ui.tooltip.cost_line", new object[] { item.Cost });
+        string description = LocalizationManager.Instance.LocalizeWithFormat(item.DescriptionKey, formatArgs);
+        tooltipRequestId = TooltipManager.Instance.Show(name, $"{cost}\n\n{description}");
     }
 
     public void OnPointerExit(PointerEventData eventData)

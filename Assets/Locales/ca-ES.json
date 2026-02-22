@@ -1,0 +1,24 @@
+{
+    "data": {
+        "code": "ca-ES",
+        "name": "Català (Espanya)"
+    },
+    "entries": [
+        { "key": "ui.title", "value": "La Tenda de la Bruixa" },
+        { "key": "ui.ending", "value": "Fi!" },
+        { "key": "ui.button.start_game", "value": "Iniciar Joc" },
+        { "key": "ui.button.buy", "value": "<- Comprar" },
+        { "key": "ui.button.sell", "value": "Vendre ->" },
+        { "key": "ui.button.use_item", "value": "Utilitzar" },
+        { "key": "ui.tooltip.cost_line", "value": "<b>Cost:</b> <color={t:goldColor}>{0} monedes</color>" },
+        
+        { "key": "item.food.cookie.name", "value": "Galeta" },
+        { "key": "item.food.cookie.desc", "value": "Una dolça y saborosa galeta.\nRestaura <color={t:HPColor}>{0} PV</color>." },
+        { "key": "item.food.pizza_slice.name", "value": "Porció de pizza" },
+        { "key": "item.food.pizza_slice.desc", "value": "Una deliciosa porció de pizza.\nRestaura <color={t:HPColor}>{0} PV</color>." },
+        { "key": "item.potion.invigorating_potion.name", "value": "Poció revitalitzant" },
+        { "key": "item.potion.invigorating_potion.desc", "value": "Una poció misteriosa.\nRestaura <color={t:HPColor}>{0} PV</color> i incrementa els teus <color={t:maxHPColor}>PV màxims</color> en <color={t:maxHPColor}>{1}</color>." },
+        { "key": "item.weapon.battle_axe.name", "value": "Destral de batalla" },
+        { "key": "item.weapon.battle_axe.desc", "value": "Una destral de batalla ben equilibrada.\nAugmenta el teu <color={t:damageColor}>dany</color> en <color={t:damageColor}>{0}</color>." }
+    ]
+}

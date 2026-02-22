@@ -24,4 +24,6 @@ MonoBehaviour:
     Amount: 2
   - Item: {fileID: 11400000, guid: 53ef874ebd658ad4a8cad90e416cd203, type: 2}
     Amount: 1
+  - Item: {fileID: 11400000, guid: 4534a3c301c8e584e90f9a1adaccfda5, type: 2}
+    Amount: 3
   Coins: 1193

@@ -18,23 +18,17 @@ public class TooltipManager : MonoBehaviour
     private RectTransform rectTransform;
     private int currentRequestId;
 
-    void Awake()
+    private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
 
         if (canvas == null) canvas = GetComponentInParent<Canvas>();
         if (rectTransform == null) rectTransform = (RectTransform) transform;
         gameObject.SetActive(false);
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (!gameObject.activeSelf) return;
         FollowMouse();
@@ -63,7 +57,7 @@ public class TooltipManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void FollowMouse()
+    private void FollowMouse()
     {
         RectTransform canvasRect = (RectTransform) canvas.transform;
 
@@ -78,7 +72,7 @@ public class TooltipManager : MonoBehaviour
         rectTransform.anchoredPosition = ClampToCanvas(localPoint, canvasRect);
     }
 
-    Vector2 ClampToCanvas(Vector2 desired, RectTransform canvasRect)
+    private Vector2 ClampToCanvas(Vector2 desired, RectTransform canvasRect)
     {
         Vector2 size = rectTransform.rect.size;
         Vector2 min = canvasRect.rect.min + new Vector2(EdgePadding, EdgePadding) + size * 0.5f;

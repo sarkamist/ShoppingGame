@@ -65,7 +65,7 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Not enough Player coins to buy {item.Name}!");
+            Debug.Log($"Not enough Player coins to buy {item.NameKey}!");
         }
     }
 
@@ -88,7 +88,7 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Not enough Shop coins to sell {item.Name}!");
+            Debug.Log($"Not enough Shop coins to sell {item.NameKey}!");
         }
     }
 

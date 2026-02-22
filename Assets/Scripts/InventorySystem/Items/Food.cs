@@ -9,4 +9,9 @@ public class Food : BaseConsumableItem
     {
         consumer.Use(this);
     }
+
+    public override object[] GetDescriptionFormatArgs()
+    {
+        return new object[] { CurrentHealthIncrease };
+    }
 }

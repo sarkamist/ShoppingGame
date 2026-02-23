@@ -43,7 +43,6 @@ public class ItemSlotUI : MonoBehaviour,
         if (ShopManager.Instance == null || ItemSlotModel == null) return;
 
         ShopManager.Instance.OnPointerClick(eventData, this);
-        ShopManager.Instance.OnPointerClick(eventData, this);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -95,8 +94,6 @@ public class ItemSlotUI : MonoBehaviour,
 
         if (ItemSlotModel == null) return;
 
-        
-
         var go = eventData.pointerCurrentRaycast.gameObject;
         if (go == null)
         {
@@ -122,5 +119,5 @@ public class ItemSlotUI : MonoBehaviour,
 
             ShopManager.Instance.ManageBuySell(this, inventory);
         }
-    }
+    }   
 }

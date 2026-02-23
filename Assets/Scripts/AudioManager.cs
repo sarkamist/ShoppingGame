@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayMusic(BackgroundMusic, true);
+        PlayMusic(BackgroundMusic, true);
     }
 
     public void PlayMusic(AudioClip clip, bool loop = true)

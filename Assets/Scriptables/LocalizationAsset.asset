@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: LocalizationAsset
   m_EditorClassIdentifier: Assembly-CSharp::LocalizationAsset
   FallbackLanguageCode: en-GB
-  CurrentLanguageCode: en-GB
+  CurrentLanguageCode: it-IT
   Locales:
   - json: {fileID: 4900000, guid: 32abe6f3b7e9a0743be75ac96a2818dc, type: 3}
   - json: {fileID: 4900000, guid: b114b8141359b4a429a1ef9b60ee649e, type: 3}
   - json: {fileID: 4900000, guid: 5135568df20077b46ab834923a8cde0a, type: 3}
+  - json: {fileID: 4900000, guid: 62d67ef8baf115343905a3b56fa2acea, type: 3}
   Tokens:
   - key: infoColor
     value: '#4169E1'

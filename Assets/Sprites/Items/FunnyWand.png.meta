@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 91466af727809cd42a8bf5c7072692e0
+guid: 25e6c09ee333c094bb3812a5f8c1558d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2536393117186096198
-    second: coffee-item_0
+      213: -7787637580458972045
+    second: FunnyWand_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffee-item_0
+      name: FunnyWand_0
       rect:
         serializedVersion: 2
-        x: 59
-        y: 69
-        width: 172
-        height: 152
+        x: 0
+        y: 9
+        width: 280
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab38067f5ebecccd0800000000000000
-      internalID: -2536393117186096198
+      spriteID: 37ca24991e0cce390800000000000000
+      internalID: -7787637580458972045
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coffee-item_0: -2536393117186096198
+      FunnyWand_0: -7787637580458972045
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

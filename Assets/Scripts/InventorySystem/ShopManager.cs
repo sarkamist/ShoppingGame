@@ -68,11 +68,19 @@ public class ShopManager : MonoBehaviour
         int itemCost = 0;
         if (originInventoryUI == ShopInventoryUI && targetInventoryUI == PlayerInventoryUI)
         {
-            itemCost = Mathf.FloorToInt(item.Cost * BuyCostModifier);
+            itemCost = Mathf.FloorToInt(item.Value * BuyCostModifier);
         }
         else if (originInventoryUI == PlayerInventoryUI && targetInventoryUI == ShopInventoryUI)
         {
-            itemCost = Mathf.FloorToInt(item.Cost * SellCostModifier);
+            if (item is Junk junk)
+            {
+                itemCost = Mathf.FloorToInt(item.Value * (junk.IsSoldAtBuyValue ? BuyCostModifier : SellCostModifier));
+            }
+            else
+            {
+                itemCost = Mathf.FloorToInt(item.Value * SellCostModifier);
+            }
+                
         }
 
         if (itemCost != 0)
@@ -80,7 +88,12 @@ public class ShopManager : MonoBehaviour
             originInventoryUI.InventoryModel.ChangeCoins(itemCost);
             originInventoryUI.InventoryModel.RemoveItem(originSlotUI.ItemSlotModel);
             targetInventoryUI.InventoryModel.ChangeCoins(-itemCost);
-            targetInventoryUI.InventoryModel.AddItem(item);
+            if (item is not Junk)
+            {
+                targetInventoryUI.InventoryModel.AddItem(item);
+            }
+
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.CoinSpent);
 
             ClearSelectedSlot();
         }
@@ -98,10 +111,11 @@ public class ShopManager : MonoBehaviour
     {
         if (originSlotUI.Inventory == PlayerInventoryUI && originSlotUI.ItemSlotModel.Item is BaseConsumableItem consumable)
         {
-            originSlotUI.Inventory.InventoryModel.RemoveItem(originSlotUI.ItemSlotModel);
-            consumable.Use(consumer);
-
-            ClearSelectedSlot();
+            if (consumable.Use(consumer))
+            {
+                originSlotUI.Inventory.InventoryModel.RemoveItem(originSlotUI.ItemSlotModel);
+                ClearSelectedSlot();
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b73e9519e61685745897246509fc90ad
+guid: 0ae107f06eb412c4797c882d900e218c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4315506946141470425
-    second: Mushroom_0
+      213: -3019986152035714484
+    second: GoldIngot_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mushroom_0
+      name: GoldIngot_0
       rect:
         serializedVersion: 2
         x: 9
-        y: 9
-        width: 262
-        height: 262
+        y: 39
+        width: 252
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9de3e76f3b2c3eb30800000000000000
-      internalID: 4315506946141470425
+      spriteID: c4aff45689ad616d0800000000000000
+      internalID: -3019986152035714484
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mushroom_0: 4315506946141470425
+      GoldIngot_0: -3019986152035714484
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

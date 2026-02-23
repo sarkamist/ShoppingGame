@@ -3,15 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Food", menuName = "Inventory System/Items/Food")]
 public class Food : BaseConsumableItem
 {
-    public float CurrentHealthIncrease;
-
-    public override void Use(IConsume consumer)
+    public override bool Use(IConsume consumer)
     {
-        consumer.Use(this);
-    }
-
-    public override object[] GetDescriptionFormatArgs()
-    {
-        return new object[] { CurrentHealthIncrease };
+        return consumer.Use(this);
     }
 }

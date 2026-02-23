@@ -1,4 +1,10 @@
 public abstract class BaseConsumableItem : BaseItem
 {
-    public abstract void Use(IConsume consumer);
+    public float CurrentHealthIncrease;
+    public abstract bool Use(IConsume consumer);
+
+    public override object[] GetDescriptionFormatArgs()
+    {
+        return new object[] { CurrentHealthIncrease };
+    }
 }

@@ -15,8 +15,6 @@ public class ItemSlotUI : MonoBehaviour,
     public Image SelectedOverlay;
     public TextMeshProUGUI AmountText;
 
-    private Canvas canvas;
-    private Transform dragParent;
     private int tooltipRequestId;
 
     public void Bind(ItemSlot slot)
@@ -45,6 +43,7 @@ public class ItemSlotUI : MonoBehaviour,
         if (ShopManager.Instance == null || ItemSlotModel == null) return;
 
         ShopManager.Instance.OnPointerClick(eventData, this);
+        ShopManager.Instance.OnPointerClick(eventData, this);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -55,9 +54,14 @@ public class ItemSlotUI : MonoBehaviour,
 
         string name = LocalizationManager.Instance.Localize(item.NameKey);
         object[] formatArgs = item.GetDescriptionFormatArgs();
-        string cost = LocalizationManager.Instance.LocalizeWithFormat("ui.tooltip.cost_line", new object[] { item.Cost });
-        string description = LocalizationManager.Instance.LocalizeWithFormat(item.DescriptionKey, formatArgs);
-        tooltipRequestId = TooltipManager.Instance.Show(name, $"{cost}\n\n{description}");
+        string cost = LocalizationManager.Instance.LocalizeWithFormat(LocalizationManager.Instance.Data.ValueLineKey, new object[] { item.Value });
+        if (item is Junk junk)
+        {
+            string junkKey = (junk.IsSoldAtBuyValue) ? LocalizationManager.Instance.Data.JunkInfoTrueKey : LocalizationManager.Instance.Data.JunkInfoFalseKey;
+            cost += $"\n\n{LocalizationManager.Instance.Localize(junkKey)}";
+        }
+        string description = $"{cost}\n\n{LocalizationManager.Instance.LocalizeWithFormat(item.DescriptionKey, formatArgs)}";
+        tooltipRequestId = TooltipManager.Instance.Show(name, description);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -75,6 +79,7 @@ public class ItemSlotUI : MonoBehaviour,
 
         Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, DragManager.Instance.DragAlpha);
         DragManager.Instance.Begin(ItemSlotModel.Item.Image, eventData.position);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.ItemGrab);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -90,11 +95,16 @@ public class ItemSlotUI : MonoBehaviour,
 
         if (ItemSlotModel == null) return;
 
-        var go = eventData.pointerCurrentRaycast.gameObject;
-        Debug.Log("checking hit");
-        if (go == null) return;
+        
 
-        Debug.Log(go);
+        var go = eventData.pointerCurrentRaycast.gameObject;
+        if (go == null)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Error);
+            return;
+        };
+
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.ItemDrop);
 
         if (go.GetComponent<Player>() is Player player)
         {

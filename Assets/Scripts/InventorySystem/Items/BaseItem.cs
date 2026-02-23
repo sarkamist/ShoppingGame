@@ -5,7 +5,7 @@ public abstract class BaseItem : ScriptableObject
     public string NameKey;
     public string DescriptionKey;
     public Sprite Image;
-    public int Cost;
+    public int Value;
     public bool IsStackable;
     public int StackSize = 1;
 

@@ -71,11 +71,6 @@ public class InventoryUI : MonoBehaviour
         return element.gameObject;
     }
 
-    public void UseItem(BaseItem item)
-    {
-        //InventoryModel.RemoveItem(item);
-    }
-
     public void UpdateCoinUI()
     {
         CoinText.text = $"{InventoryModel.Coins}";

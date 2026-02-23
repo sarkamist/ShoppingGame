@@ -10,15 +10,23 @@
         { "key": "ui.button.buy", "value": "<-- Comprar" },
         { "key": "ui.button.sell", "value": "Vender -->" },
         { "key": "ui.button.use_item", "value": "Usar" },
-        { "key": "ui.tooltip.cost_line", "value": "<b>Coste:</b> <color={t:goldColor}>{0} monedas</color>" },
+        { "key": "ui.tooltip.merchant_name", "value": "La Bruja" },
+        { "key": "ui.tooltip.merchant_desc", "value": "¡Buenos días! Estoy dispuesta a vender artículos de mi inventario por el <color={t:infoColor}>{0}</color> de su valor y comprar artículos de tu inventario por el <color={t:infoColor}>{1}</color> de su valor." },
+        { "key": "ui.tooltip.value_line", "value": "<b>Valor:</b> <color={t:goldColor}>{0} monedas</color>" },
+        { "key": "ui.tooltip.junk_info_true", "value": "<align=center><color={t:infoColor}><i>Se vende por su valor total.\nSolo se puede vender.</i></color></align>" },
+        { "key": "ui.tooltip.junk_info_false", "value": "<align=center><color={t:infoColor}><i>Solo se puede vender.</i></color></align>" },
         
         { "key": "item.food.cookie.name", "value": "Galleta" },
         { "key": "item.food.cookie.desc", "value": "Una dulce y sabrosa galleta.\nRestaura <color={t:HPColor}>{0} PV</color>." },
         { "key": "item.food.pizza_slice.name", "value": "Porción de pizza" },
         { "key": "item.food.pizza_slice.desc", "value": "Una deliciosa porción de pizza.\nRestaura <color={t:HPColor}>{0} PV</color>." },
         { "key": "item.potion.invigorating_potion.name", "value": "Poción revitalizante" },
-        { "key": "item.potion.invigorating_potion.desc", "value": "Una poción misteriosa.\nRestaura <color={t:HPColor}>{0} PV</color> e incrementa tus <color={t:maxHPColor}>PV máximos</color> en <color={t:maxHPColor}>{1}</color>." },
+        { "key": "item.potion.invigorating_potion.desc", "value": "Una poción misteriosa.\nRestaura <color={t:HPColor}>{0} PV</color> e incrementa tus <color={t:maxHPColor}>PV máximos</color> en <color={t:maxHPColor}>{1}</color>.\n\nEl frasco vacío se puede reutilizar." },
         { "key": "item.weapon.battle_axe.name", "value": "Hacha de batalla" },
-        { "key": "item.weapon.battle_axe.desc", "value": "Un hacha de batalla bien equilibrada.\nAumenta tu <color={t:damageColor}>daño</color> en <color={t:damageColor}>{0}</color>." }
+        { "key": "item.weapon.battle_axe.desc", "value": "Un hacha de batalla bien equilibrada.\nAumenta tu <color={t:damageColor}>daño</color> en <color={t:damageColor}>{0}</color>." },
+        { "key": "item.junk.empty_vial.name", "value": "Frasco vacío" },
+        { "key": "item.junk.empty_vial.desc", "value": "Un frasco de vidrio vacío." },
+        { "key": "item.junk.gold_ingot.name", "value": "Lingote de oro" },
+        { "key": "item.junk.gold_ingot.desc", "value": "Una pesada barra de oro puro, un mercader pagaría una buena suma por ella." }
     ]
 }

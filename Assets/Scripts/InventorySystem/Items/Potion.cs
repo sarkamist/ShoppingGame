@@ -4,11 +4,12 @@ using UnityEngine;
 public class Potion : BaseConsumableItem
 {
     public float MaxHealthIncrease;
-    public float CurrentHealthIncrease;
+    public bool JunkOnConsume;
+    public Junk JunkItem;
 
-    public override void Use(IConsume consumer)
+    public override bool Use(IConsume consumer)
     {
-        consumer.Use(this);
+        return consumer.Use(this);
     }
 
     public override object[] GetDescriptionFormatArgs()

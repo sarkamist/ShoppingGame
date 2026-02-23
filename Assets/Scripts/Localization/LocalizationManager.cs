@@ -5,47 +5,11 @@ using UnityEngine;
 
 public class LocalizationManager : MonoBehaviour
 {
-    [Serializable]
-    public class LocaleJson
-    {
-        public Data data;
-        public List<Entry> entries;
-    }
-
-    [Serializable]
-    public class Data
-    {
-        public string code;
-        public string name;
-    }
-
-    [Serializable]
-    public class Entry
-    {
-        public string key;
-        public string value;
-    }
-
-    [Serializable]
-    public class LocaleAsset
-    {
-        public TextAsset json;
-    }
-
-    [Serializable]
-    public struct Token
-    {
-        public string key;
-        public string value;
-    }
+    
 
     public static LocalizationManager Instance { get; private set; }
 
-    [Header("Locales Configuration")]
-    public string FallbackLanguageCode = "en-GB";
-    public string CurrentLanguageCode = "en-GB";
-    public List<LocaleAsset> Locales;
-    public List<Token> Tokens;
+    public LocalizationAsset Data;
 
     private readonly List<(string code, string name)> languages = new List<(string code, string name)>();
     private readonly Dictionary<string, Dictionary<string, string>> tablesByCode = new Dictionary<string, Dictionary<string, string>>();
@@ -65,10 +29,9 @@ public class LocalizationManager : MonoBehaviour
 
         LoadAllLocales();
         BuildTokenMap();
-        var saved = PlayerPrefs.GetString("lang", CurrentLanguageCode);
-        if (!SetLanguage(saved, notify: false))
+        if (!SetLanguage(Data.CurrentLanguageCode, notify: false))
         {
-            SetLanguage(FallbackLanguageCode, notify: false);
+            SetLanguage(Data.FallbackLanguageCode, notify: false);
         }
     }
 
@@ -85,11 +48,8 @@ public class LocalizationManager : MonoBehaviour
             return false;
         }
 
-        CurrentLanguageCode = code;
+        Data.CurrentLanguageCode = code;
         currentTable = table;
-
-        PlayerPrefs.SetString("lang", code);
-        PlayerPrefs.Save();
 
         if (notify) OnLanguageChanged?.Invoke();
         return true;
@@ -103,8 +63,8 @@ public class LocalizationManager : MonoBehaviour
 
         if (currentTable != null && currentTable.TryGetValue(key, out var v))
             raw = v;
-        else if (!string.IsNullOrEmpty(FallbackLanguageCode) &&
-                 tablesByCode.TryGetValue(FallbackLanguageCode, out var fb) &&
+        else if (!string.IsNullOrEmpty(Data.FallbackLanguageCode) &&
+                 tablesByCode.TryGetValue(Data.FallbackLanguageCode, out var fb) &&
                  fb.TryGetValue(key, out var fv))
             raw = fv;
         else
@@ -125,14 +85,14 @@ public class LocalizationManager : MonoBehaviour
         languages.Clear();
         tablesByCode.Clear();
 
-        foreach (var loc in Locales)
+        foreach (var loc in Data.Locales)
         {
             if (loc?.json == null) continue;
 
-            LocaleJson parsed;
+            LocalizationAsset.LocaleJson parsed;
             try
             {
-                parsed = JsonUtility.FromJson<LocaleJson>(loc.json.text);
+                parsed = JsonUtility.FromJson<LocalizationAsset.LocaleJson>(loc.json.text);
             }
             catch (Exception e)
             {
@@ -174,7 +134,7 @@ public class LocalizationManager : MonoBehaviour
     private void BuildTokenMap()
     {
         tokenMap = new Dictionary<string, string>(StringComparer.Ordinal);
-        foreach (var t in Tokens)
+        foreach (var t in Data.Tokens)
         {
             if (string.IsNullOrWhiteSpace(t.key)) continue;
             tokenMap[t.key.Trim()] = t.value ?? "";

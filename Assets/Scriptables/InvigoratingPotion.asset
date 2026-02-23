@@ -15,8 +15,10 @@ MonoBehaviour:
   NameKey: item.potion.invigorating_potion.name
   DescriptionKey: item.potion.invigorating_potion.desc
   Image: {fileID: 21300000, guid: 8562fe0cbff275b48b57e2069e424231, type: 3}
-  Cost: 50
+  Value: 30
   IsStackable: 1
   StackSize: 3
   MaxHealthIncrease: 25
   CurrentHealthIncrease: 25
+  JunkOnConsume: 1
+  JunkItem: {fileID: 11400000, guid: fd88612ac50f1e54fbc14cdfcb6fd525, type: 2}

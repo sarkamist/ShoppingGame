@@ -16,4 +16,6 @@ MonoBehaviour:
   Slots:
   - Item: {fileID: 11400000, guid: 08ba4cc30eae9024282c30b0aa49842d, type: 2}
     Amount: 1
+  - Item: {fileID: 11400000, guid: c665b30587c7aa04f85437665ceda110, type: 2}
+    Amount: 1
   Coins: 504

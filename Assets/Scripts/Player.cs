@@ -44,15 +44,26 @@ public class Player : MonoBehaviour, IConsume
         CurrentHealth -= Damage;
     }
 
-    public void Use(BaseConsumableItem consumable)
+    public bool Use(BaseConsumableItem consumable)
     {
-    }
+        Inventory playerInventory = ShopManager.Instance.PlayerInventoryUI.InventoryModel;
+        if (consumable is Potion potion)
+        {
+            if (potion.JunkOnConsume)
+            {
+                if (playerInventory.UsedSlots < playerInventory.MaxSlots || playerInventory.GetSlot(potion.JunkItem) != null)
+                {
+                    playerInventory.AddItem(potion.JunkItem);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            MaxHealth += potion.MaxHealthIncrease;
+        }
+        CurrentHealth = Mathf.Clamp(CurrentHealth + consumable.CurrentHealthIncrease, 0, MaxHealth);
 
-    public void ChangeHealth(float amount)
-    {
-        CurrentHealth = Mathf.Min(
-            MaxHealth,
-            Mathf.Max(0, CurrentHealth += amount)
-        );
+        return true;
     }
 }

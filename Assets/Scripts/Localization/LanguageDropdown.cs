@@ -19,7 +19,7 @@ public class LanguageDropdown : MonoBehaviour
         for (int i = 0; i < lm.Languages.Count; i++)
         {
             options.Add(lm.Languages[i].name);
-            if (lm.Languages[i].code == lm.CurrentLanguageCode)
+            if (lm.Languages[i].code == lm.Data.CurrentLanguageCode)
                 currentIndex = i;
         }
 

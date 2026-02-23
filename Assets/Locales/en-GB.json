@@ -10,15 +10,23 @@
         { "key": "ui.button.buy", "value": "<-- Buy" },
         { "key": "ui.button.sell", "value": "Sell -->" },
         { "key": "ui.button.use_item", "value": "Use" },
-        { "key": "ui.tooltip.cost_line", "value": "<b>Cost:</b> <color={t:goldColor}>{0} coins</color>" },
+        { "key": "ui.tooltip.merchant_name", "value": "The Witch" },
+        { "key": "ui.tooltip.merchant_desc", "value": "Good morning! I'm willing to sell items from my inventory for a <color={t:infoColor}>{0}</color> of their value and buy items from your inventory at a <color={t:infoColor}>{1}</color> of their value." },
+        { "key": "ui.tooltip.value_line", "value": "<b>Value:</b> <color={t:goldColor}>{0} coins</color>" },
+        { "key": "ui.tooltip.junk_info_true", "value": "<align=center><color={t:infoColor}><i>Sells at full value.\nCan only be sold.</i></color></align>" },
+        { "key": "ui.tooltip.junk_info_false", "value": "<align=center><color={t:infoColor}><i>Can only be sold.</i></color></align>" },
         
         { "key": "item.food.cookie.name", "value": "Cookie" },
         { "key": "item.food.cookie.desc", "value": "A sweet and yummy cookie.\nRestores <color={t:HPColor}>{0} HP</color>." },
         { "key": "item.food.pizza_slice.name", "value": "Pizza Slice" },
         { "key": "item.food.pizza_slice.desc", "value": "A delicious slice of pizza.\nRestores <color={t:HPColor}>{0} HP</color>." },
         { "key": "item.potion.invigorating_potion.name", "value": "Invigorating Potion" },
-        { "key": "item.potion.invigorating_potion.desc", "value": "A mysterious potion.\nRestores  <color={t:HPColor}>{0} HP</color> and increases your <color={t:maxHPColor}>maximum HP</color> by <color={t:maxHPColor}>{1}</color>." },
+        { "key": "item.potion.invigorating_potion.desc", "value": "A mysterious potion.\nRestores  <color={t:HPColor}>{0} HP</color> and increases your <color={t:maxHPColor}>maximum HP</color> by <color={t:maxHPColor}>{1}</color>.\n\nThe empty vial can be reused." },
         { "key": "item.weapon.battle_axe.name", "value": "Battle Axe" },
-        { "key": "item.weapon.battle_axe.desc", "value": "A well-balanced battle axe.\nIncreases your <color={t:damageColor}>damage</color> by <color={t:damageColor}>{0}</color>." }
+        { "key": "item.weapon.battle_axe.desc", "value": "A well-balanced battle axe.\nIncreases your <color={t:damageColor}>damage</color> by <color={t:damageColor}>{0}</color>." },
+        { "key": "item.junk.empty_vial.name", "value": "Empty Vial" },
+        { "key": "item.junk.empty_vial.desc", "value": "An empty glass vial." },
+        { "key": "item.junk.gold_ingot.name", "value": "Gold Ingot" },
+        { "key": "item.junk.gold_ingot.desc", "value": "A weighty bar of pure gold, a merchant would pay a good sum for it." }
     ]
 }

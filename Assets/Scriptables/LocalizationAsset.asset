@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6785071e3d02e744a178042cbf34758, type: 3}
+  m_Name: LocalizationAsset
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizationAsset
+  FallbackLanguageCode: en-GB
+  CurrentLanguageCode: en-GB
+  Locales:
+  - json: {fileID: 4900000, guid: 32abe6f3b7e9a0743be75ac96a2818dc, type: 3}
+  - json: {fileID: 4900000, guid: b114b8141359b4a429a1ef9b60ee649e, type: 3}
+  - json: {fileID: 4900000, guid: 5135568df20077b46ab834923a8cde0a, type: 3}
+  Tokens:
+  - key: infoColor
+    value: '#4169E1'
+  - key: goldColor
+    value: '#DAA520'
+  - key: HPColor
+    value: '#32CD32'
+  - key: maxHPColor
+    value: '#228B22'
+  - key: damageColor
+    value: '#DC143C'
+  ValueLineKey: ui.tooltip.value_line
+  JunkInfoTrueKey: ui.tooltip.junk_info_true
+  JunkInfoFalseKey: ui.tooltip.junk_info_false

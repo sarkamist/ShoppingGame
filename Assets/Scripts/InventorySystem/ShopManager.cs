@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
@@ -176,5 +177,10 @@ public class ShopManager : MonoBehaviour
                 ClearSelectedSlot();
             }
         }
+    }
+
+    public void OnLeaveClick()
+    {
+        SceneChanger.Instance.OnVictory();
     }
 }

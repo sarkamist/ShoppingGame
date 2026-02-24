@@ -9,6 +9,7 @@ public class SceneChanger : MonoBehaviour
     private readonly string titleScene = "Title";
     private readonly string gameplayScene = "Gameplay";
     private readonly string endingScene = "Ending";
+    private readonly string victoryScene = "Victory";
 
     public string CurrentScene => SceneManager.GetActiveScene().name;
 
@@ -43,9 +44,13 @@ public class SceneChanger : MonoBehaviour
         {
             SceneManager.LoadScene(gameplayScene);
         }
-        else
+        else if (CurrentScene == endingScene || CurrentScene == victoryScene)
         {
             SceneManager.LoadScene(titleScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(victoryScene);
         }
     }
 
@@ -54,6 +59,14 @@ public class SceneChanger : MonoBehaviour
         if (CurrentScene == gameplayScene)
         {
             SceneManager.LoadScene(endingScene);
+        }
+    }
+
+    public void OnVictory()
+    {
+        if (CurrentScene == gameplayScene)
+        {
+            SceneManager.LoadScene(victoryScene);
         }
     }
 

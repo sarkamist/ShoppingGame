@@ -4,13 +4,16 @@
         "name": "Català (Espanya)"
     },
     "entries": [
-        { "key": "ui.title", "value": "La Tenda de la Bruixa" },
+        { "key": "ui.title", "value": "La Botiga de la Bruixa" },
         { "key": "ui.ending.title", "value": "Fi del joc!" },
         { "key": "ui.ending.desc", "value": "<color={t:damageColor}>Has gastat tots els teus punts de salut!</color>\n\nRecorda usar menjar i pocions per a restaurar els teus PV la pròxima vegada.\n\nPrem ENTER per a reiniciar." },
+        { "key": "ui.victory.title", "value": "Fins ara!" },
+        { "key": "ui.victory.desc", "value": "<color={t:infoColor}>Gràcies per comprar!</color>\n\nEl teu inventari i les existències de la bruixa romandran tal com els vas deixar per a la pròxima vegada.\n\nPrem ENTER per a reiniciar." },
         { "key": "ui.button.start_game", "value": "Iniciar Joc" },
         { "key": "ui.button.buy", "value": "Comprar" },
         { "key": "ui.button.sell", "value": "Vendre" },
         { "key": "ui.button.use_item", "value": "Utilitzar" },
+        { "key": "ui.button.leave_shop", "value": "Sortir de la botiga" },
         { "key": "ui.tooltip.merchant_name", "value": "La Bruixa" },
         { "key": "ui.tooltip.merchant_desc", "value": "Bon dia! Estic disposada a vendre articles del meu inventari per el <color={t:infoColor}>{0}</color> del seu valor i comprar articles del teu inventari per el <color={t:infoColor}>{1}</color> del seu valor." },
         { "key": "ui.tooltip.value_line", "value": "<b>Valor:</b> <color={t:goldColor}>{0} monedes</color>" },

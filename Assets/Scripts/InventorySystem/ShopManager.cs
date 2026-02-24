@@ -47,9 +47,7 @@ public class ShopManager : MonoBehaviour
         selectedSlotUI = itemSlot;
         selectedSlotUI.SelectedOverlay.enabled = true;
 
-        BuyButton.interactable = (selectedSlotUI.Inventory == ShopInventoryUI);
-        SellButton.interactable = (selectedSlotUI.Inventory == PlayerInventoryUI);
-        UseButton.interactable = (selectedSlotUI.Inventory == PlayerInventoryUI);
+        UpdateShopButtons();
 
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.ItemSelect);
     }
@@ -59,6 +57,15 @@ public class ShopManager : MonoBehaviour
         if (selectedSlotUI == null) return;
         selectedSlotUI.SelectedOverlay.enabled = false;
         selectedSlotUI = null;
+
+        UpdateShopButtons();
+    }
+
+    public void UpdateShopButtons()
+    {
+        BuyButton.interactable = (selectedSlotUI != null && selectedSlotUI.Inventory == ShopInventoryUI);
+        SellButton.interactable = (selectedSlotUI != null && selectedSlotUI.Inventory == PlayerInventoryUI);
+        UseButton.interactable = (selectedSlotUI != null && selectedSlotUI.Inventory == PlayerInventoryUI);
     }
 
     public void OnBuyClick()

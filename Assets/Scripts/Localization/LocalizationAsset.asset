@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LocalizationAsset
   m_EditorClassIdentifier: Assembly-CSharp::LocalizationAsset
   FallbackLanguageCode: en-GB
-  CurrentLanguageCode: en-GB
+  CurrentLanguageCode: it-IT
   Locales:
   - json: {fileID: 4900000, guid: 32abe6f3b7e9a0743be75ac96a2818dc, type: 3}
   - json: {fileID: 4900000, guid: b114b8141359b4a429a1ef9b60ee649e, type: 3}
@@ -22,6 +22,8 @@ MonoBehaviour:
   Tokens:
   - key: infoColor
     value: '#4169E1'
+  - key: highlightColor
+    value: '#C977FF'
   - key: goldColor
     value: '#DAA520'
   - key: HPColor

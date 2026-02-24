@@ -6,9 +6,9 @@
     "entries": [
         { "key": "ui.title", "value": "The Witch's Shop" },
         { "key": "ui.ending.title", "value": "Game Over!" },
-        { "key": "ui.ending.desc", "value": "<color={t:damageColor}>All your health points were spent!</color>\n\nRemember to use food and potions to restore your HP the next time.\n\nPress ENTER to restart." },
+        { "key": "ui.ending.desc", "value": "<color={t:damageColor}>All your health points were spent!</color>\n\nRemember to use food and potions to restore your HP the next time.\n\nPress <color={t:highlightColor}>ENTER</color> to restart." },
         { "key": "ui.victory.title", "value": "See you later!" },
-        { "key": "ui.victory.desc", "value": "<color={t:infoColor}>Thank you for shopping!</color>\n\nYour inventory and the Witch's stock will remain as you left them for next time.\n\nPress ENTER to restart." },
+        { "key": "ui.victory.desc", "value": "<color={t:infoColor}>Thank you for shopping!</color>\n\nYour inventory and the Witch's stock will remain as you left them for next time.\n\nPress <color={t:highlightColor}>ENTER</color> to restart." },
         { "key": "ui.button.start_game", "value": "Start Game" },
         { "key": "ui.button.buy", "value": "Buy" },
         { "key": "ui.button.sell", "value": "Sell" },

@@ -694,8 +694,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294932425
+  m_fontColor: {r: 0.7882353, g: 0.46666667, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1852,7 +1852,7 @@ MonoBehaviour:
     the Witch''s stock will remain as you left them for next time.
 
 
-    Press ENTER
+    Press <color=#C977FF>ENTER</color>
     to restart.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b2410ffc06966646a6a98bfda2af73b, type: 2}

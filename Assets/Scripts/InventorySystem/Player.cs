@@ -12,7 +12,7 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
     [Header("Health Parameters")]
     public float BaseDamage = 10.0f;
     public float MaxHealth = 100.0f;
-    public float CurrentHealth = 100.0f;
+    public float CurrentHealth = 75.0f;
 
     [Header("Animation Parameters")]
     public float FillSpeed = 50f;

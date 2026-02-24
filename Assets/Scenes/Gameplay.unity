@@ -864,11 +864,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82394c78655245489e1aab61365c4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  BuyCostModifier: 1
+  SellCostModifier: 0.5
+  ErrorFlickerColor: {r: 0.5450981, g: 0, b: 0, a: 1}
   Player: {fileID: 523666844}
   PlayerInventoryUI: {fileID: 1971635132}
   ShopInventoryUI: {fileID: 62576001}
-  BuyCostModifier: 1
-  SellCostModifier: 0.5
   GoldParticlesPrefab: {fileID: 7287296426719710082, guid: 4582435b33f2e7c4a86741d75325ee20,
     type: 3}
 --- !u!114 &511679175
@@ -1158,7 +1159,7 @@ MonoBehaviour:
   Inventory: {fileID: 11400000, guid: d06e8d195c9185a4fac66dd162e04fe3, type: 2}
   BaseDamage: 10
   MaxHealth: 100
-  CurrentHealth: 100
+  CurrentHealth: 75
   FillSpeed: 50
   FlickerDuration: 0.15
   FlickerCount: 2

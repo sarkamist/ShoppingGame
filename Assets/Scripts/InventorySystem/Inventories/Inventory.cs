@@ -1,43 +1,48 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewInventory", menuName = "Inventory System/Inventory")]
+[CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class Inventory : ScriptableObject
 {
-    // NOTE: One slot can contain multiple items of one type
-
-    [SerializeField]
-    List<ItemSlot> Slots;
-    public int Length => Slots.Count;
+    
+    public int MaxSlots = 4;
+    public List<ItemSlot> Slots;
+    public int UsedSlots => Slots.Count;
+    public int Coins;
 
     public Action OnInventoryChange;
+    public Action OnCoinChange;
 
-    public void AddItem(ItemBase item)
+    public bool AddItem(BaseItem item)
     {
-        // Lazy initialization of slots list
         if (Slots == null) Slots = new List<ItemSlot>();
 
+        bool success = false;
         var slot = GetSlot(item);
 
-        if ((slot != null) && (item.IsStackable))
+        if ((slot != null))
         {
             slot.AddOne();
+
+            success = true;
         }
-        else
+        else if (Slots.Count < MaxSlots)
         {
             slot = new ItemSlot(item);
             Slots.Add(slot);
+
+            success = true;
         }
 
         OnInventoryChange?.Invoke();
+
+        return success;
     }
 
-    public void RemoveItem(ItemBase item)
+    public void RemoveItem(ItemSlot slot)
     {
         if (Slots == null) return;
-
-        var slot = GetSlot(item);
 
         if (slot != null)
         {
@@ -53,11 +58,11 @@ public class Inventory : ScriptableObject
         Slots.Remove(slot);
     }
 
-    private ItemSlot GetSlot(ItemBase item)
+    public ItemSlot GetSlot(BaseItem item)
     {
         for (int i = 0; i < Slots.Count; i++)
         {
-            if (Slots[i].HasItem(item)) return Slots[i];
+            if (Slots[i].CanHold(item)) return Slots[i];
         }
 
         return null;
@@ -66,5 +71,11 @@ public class Inventory : ScriptableObject
     public ItemSlot GetSlot(int i)
     {
         return Slots[i];
+    }
+
+    public void ChangeCoins(int amount)
+    {
+        Coins += amount;
+        OnCoinChange?.Invoke();
     }
 }

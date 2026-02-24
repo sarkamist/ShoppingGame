@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class ItemSlot
 {
-    public ItemBase Item;
+    public BaseItem Item;
     public int Amount;
 
-    public ItemSlot(ItemBase item)
+    public ItemSlot(BaseItem item)
     {
         this.Item = item;
         Amount = 1;
     }
 
-    internal bool HasItem(ItemBase item)
+    internal bool CanHold(BaseItem item)
     {
-        return (item == Item);
-    }
-
-    internal bool CanHold(ItemBase item)
-    {
-        if (item.IsStackable) return (item == Item);
+        if (item.IsStackable && item == Item) return (Amount < item.StackSize);
 
         return false;
     }
@@ -42,5 +34,3 @@ public class ItemSlot
         return (Amount < 1);
     }
 }
-
-

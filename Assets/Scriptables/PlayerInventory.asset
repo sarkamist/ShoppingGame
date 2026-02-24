@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7732730391199b44b9c9b8e94a11f89, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ecc9d620eedf854995326e7498bad84, type: 3}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  MaxSlots: 20
   Slots:
-  - Item: {fileID: 11400000, guid: 734d1cb790d20d141af8055d412d676f, type: 2}
-    Amount: 2
+  - Item: {fileID: 11400000, guid: 08ba4cc30eae9024282c30b0aa49842d, type: 2}
+    Amount: 1
+  - Item: {fileID: 11400000, guid: c665b30587c7aa04f85437665ceda110, type: 2}
+    Amount: 1
+  Coins: 504

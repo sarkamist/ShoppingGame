@@ -6,10 +6,10 @@
     "entries": [
         { "key": "ui.title", "value": "La Tienda de la Bruja" },
         { "key": "ui.ending.title", "value": "¡Fin del juego!" },
-        { "key": "ui.ending.desc", "value": "<color={t:damageColor}>¡Has gastado todos tus puntos de salud!</color>\n\nRecuerda usar comida y pociones para restaurar tu HP la próxima vez.\n\nPulsa ENTER para reiniciar." },
+        { "key": "ui.ending.desc", "value": "<color={t:damageColor}>¡Has gastado todos tus puntos de salud!</color>\n\nRecuerda usar comida y pociones para restaurar tus PV la próxima vez.\n\nPulsa ENTER para reiniciar." },
         { "key": "ui.button.start_game", "value": "Iniciar Juego" },
-        { "key": "ui.button.buy", "value": "<-- Comprar" },
-        { "key": "ui.button.sell", "value": "Vender -->" },
+        { "key": "ui.button.buy", "value": "Comprar" },
+        { "key": "ui.button.sell", "value": "Vender" },
         { "key": "ui.button.use_item", "value": "Usar" },
         { "key": "ui.tooltip.merchant_name", "value": "La Bruja" },
         { "key": "ui.tooltip.merchant_desc", "value": "¡Buenos días! Estoy dispuesta a vender artículos de mi inventario por el <color={t:infoColor}>{0}</color> de su valor y comprar artículos de tu inventario por el <color={t:infoColor}>{1}</color> de su valor." },

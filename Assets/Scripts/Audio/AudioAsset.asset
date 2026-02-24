@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2e66d49545edd4b9cbd7edd4cecdd2, type: 3}
   m_Name: AudioAsset
   m_EditorClassIdentifier: Assembly-CSharp::AudioAsset
+  SFXVolume: 0.6
   Error: {fileID: 8300000, guid: 54d371426031b384c9cbf0b6ed28b3d4, type: 3}
   ItemSelect: {fileID: 8300000, guid: 413e38e2a904811428fb99729030c060, type: 3}
   ItemGrab: {fileID: 8300000, guid: 7a67c20bb132264448e0ea83b67439ed, type: 3}
@@ -19,4 +20,6 @@ MonoBehaviour:
   CoinSpent: {fileID: 8300000, guid: 897169b3504ad9548aad7e42a6b5f2ec, type: 3}
   DrinkPotion: {fileID: 8300000, guid: e28c50b2f1d77f449bf9e50978e2a7d3, type: 3}
   FoodEaten: {fileID: 8300000, guid: 49b23998e97d597468b1cc32df117d89, type: 3}
+  DamageReceived: {fileID: 8300000, guid: 29e10783c7d67e548a408a4fca82ed62, type: 3}
+  MusicVolume: 0.05
   BackgroundMusic: {fileID: 8300000, guid: cd6d2ab18496bd54384f146517265d23, type: 3}

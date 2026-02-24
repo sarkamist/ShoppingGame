@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Data;
 using System.Linq;
 using TMPro;
@@ -5,6 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class Player : MonoBehaviour, IConsume, IPointerClickHandler
 {
     public Inventory Inventory;
@@ -18,9 +20,11 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
     public float FillSpeed = 50f;
     public float FlickerDuration = 0.125f;
     public int FlickerCount = 2;
+    public Color HealthBarFlickerColor = new Color(0.25f, 0.625f, 0.2f, 0.25f);
+    public Color DamageCounterFlickerColor = new Color(0.85f, 0.075f, 0.25f, 1f);
 
     [Header("References")]
-    public Image HealthBarForeground;
+    public Image HealthBarBackground;
     public TextMeshProUGUI TextHealth;
     public TextMeshProUGUI TextDamage;
 
@@ -29,10 +33,11 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
     private float displayedHealth;
     private float lastHealth;
     private Coroutine healthBarFlickerRoutine;
+    private Coroutine textDamageFlickerRoutine;
 
     private void Start()
     {
-        maxWidth = HealthBarForeground.rectTransform.rect.width;
+        maxWidth = HealthBarBackground.rectTransform.rect.width;
         displayedHealth = CurrentHealth;
         lastHealth = CurrentHealth;
 
@@ -77,7 +82,7 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
     public void UpdateHealthBar()
     {
         float ratio = (float) displayedHealth / MaxHealth;
-        RectTransform rt = HealthBarForeground.rectTransform;
+        RectTransform rt = HealthBarBackground.rectTransform;
 
         rt.sizeDelta = new Vector2(maxWidth * ratio, rt.sizeDelta.y);
         TextHealth.text = $"{CurrentHealth} / {MaxHealth}";
@@ -132,6 +137,9 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            StartDamageCounterFlicker();
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.DamageReceived);
+
             CurrentHealth = Mathf.Clamp(CurrentHealth - totalDamage, 0f, MaxHealth);
         }
     }
@@ -144,17 +152,40 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
 
     private System.Collections.IEnumerator HealthBarFlicker()
     {
-        Color c = HealthBarForeground.color;
+        Color c = HealthBarBackground.color;
 
         for (int i = 0; i < FlickerCount; i++)
         {
-            HealthBarForeground.color = new Color(c.r, c.g, c.b, 0.25f);
+            HealthBarBackground.color = HealthBarFlickerColor;
             yield return new WaitForSeconds(FlickerDuration);
 
-            HealthBarForeground.color = new Color(c.r, c.g, c.b, 1f); ;
+            HealthBarBackground.color = c;
             yield return new WaitForSeconds(FlickerDuration);
         }
 
-        HealthBarForeground.color = c;
+        HealthBarBackground.color = c;
+    }
+
+    public void StartDamageCounterFlicker()
+    {
+        if (textDamageFlickerRoutine != null) StopCoroutine(textDamageFlickerRoutine);
+        textDamageFlickerRoutine = StartCoroutine(DamageCounterFlicker());
+    }
+
+    private System.Collections.IEnumerator DamageCounterFlicker()
+    {
+        Image damageCounter = TextDamage.GetComponentInParent<Image>();
+        Color c = damageCounter.color;
+
+        for (int i = 0; i < FlickerCount; i++)
+        {
+            damageCounter.color = DamageCounterFlickerColor;
+            yield return new WaitForSeconds(FlickerDuration);
+
+            damageCounter.color = c;
+            yield return new WaitForSeconds(FlickerDuration);
+        }
+
+        damageCounter.color = c;
     }
 }

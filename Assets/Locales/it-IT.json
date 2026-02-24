@@ -5,10 +5,11 @@
     },
     "entries": [
         { "key": "ui.title", "value": "Il Negozio della Strega" },
-        { "key": "ui.ending", "value": "Fine!" },
+        { "key": "ui.ending.title", "value": "¡Fine del gioco!" },
+        { "key": "ui.ending.desc", "value": "<color={t:damageColor}>¡Hai spenso tutti i tuoi punti di salute</color>\n\nRicorda utilizzare mangiare e pozioni per ripristinare i tuoi PV la prossima volta.\n\nPremi ENTER per reiniziare." },
         { "key": "ui.button.start_game", "value": "Inizia gioco" },
-        { "key": "ui.button.buy", "value": "<-- Comprare" },
-        { "key": "ui.button.sell", "value": "Vendere -->" },
+        { "key": "ui.button.buy", "value": "Comprare" },
+        { "key": "ui.button.sell", "value": "Vendere" },
         { "key": "ui.button.use_item", "value": "Usare" },
         { "key": "ui.tooltip.merchant_name", "value": "La Strega" },
         { "key": "ui.tooltip.merchant_desc", "value": "¡Buon giorno! Sono disposta a vendere gli articoli del mio inventario per il <color={t:infoColor}>{0}</color> del suo valore e comprare articoli del tuo inventario per il <color={t:infoColor}>{1}</color> del suo valore." },
@@ -22,11 +23,17 @@
         { "key": "item.food.pizza_slice.desc", "value": "Una deliziosa porzione di pizza.\nRipristina <color={t:HPColor}>{0} PV</color>." },
         { "key": "item.potion.invigorating_potion.name", "value": "Pozzione rivitalizzante" },
         { "key": "item.potion.invigorating_potion.desc", "value": "Una pozzione misteriosa.\nRipristina <color={t:HPColor}>{0} PV</color> e incrementa i tuoi <color={t:maxHPColor}>PV massimi</color> in <color={t:maxHPColor}>{1}</color>.\n\nLa fiasca vuota si puo utilizzare." },
+        { "key": "item.potion.owlbear_egg.name", "value": "Uovo di orso gufo" },
+        { "key": "item.potion.owlbear_egg.desc", "value": "Questo enorme e raro huovo e conosciuto per le sue proprieta rivitalizanti cuando si consume il suo tuorlo curdo.\nRipristina <color={t:HPColor}>{0} PV</color> e incrementa i tuoi <color={t:maxHPColor}>PV massimi</color> in <color={t:maxHPColor}>{1}</color>.\n\nIl guscio vuoto e molto valioso per gli alchimisti." },
         { "key": "item.weapon.battle_axe.name", "value": "Ascia di battaglia" },
         { "key": "item.weapon.battle_axe.desc", "value": "Un ascia di bataglia ben equilibrata.\nAumenta il tuo <color={t:damageColor}>danno</color> in <color={t:damageColor}>{0}</color>." },
+        { "key": "item.weapon.explosive_wand.name", "value": "Bacchetta esplosiva" },
+        { "key": "item.weapon.explosive_wand.desc", "value": "Questa bacchetta mistica lancia palle di fuoco in gran quantità contro i tuoi nemici.\nAumenta il tuo <color={t:damageColor}>danno</color> in <color={t:damageColor}>{0}</color>." },
         { "key": "item.junk.empty_vial.name", "value": "Fiasca vuota" },
         { "key": "item.junk.empty_vial.desc", "value": "Una fiasca di vetro vuota." },
         { "key": "item.junk.gold_ingot.name", "value": "Lingotto d'oro" },
-        { "key": "item.junk.gold_ingot.desc", "value": "Una pesante barra d'oro puro, un mercante pagerebbe una buona summa per questa." }
+        { "key": "item.junk.gold_ingot.desc", "value": "Una pesante barra d'oro puro, un mercante pagerebbe una buona summa per questa." },
+        { "key": "item.junk.owlbear_eggshell.name", "value": "Guscio d'uovo di orso gufo" },
+        { "key": "item.junk.owlbear_eggshell.desc", "value": "Questi rari resti d'uovo sono molto apprezziati dagli alchimisti." }
     ]
 }

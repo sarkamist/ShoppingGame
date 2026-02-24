@@ -79,7 +79,7 @@ public class ItemSlotUI : MonoBehaviour,
 
         Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, DragManager.Instance.DragAlpha);
         DragManager.Instance.Begin(ItemSlotModel.Item.Image, eventData.position);
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.ItemGrab);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.ItemGrab);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -100,15 +100,22 @@ public class ItemSlotUI : MonoBehaviour,
         var go = eventData.pointerCurrentRaycast.gameObject;
         if (go == null)
         {
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.Error);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.Error);
             return;
         };
 
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.ItemDrop);
-
         if (go.GetComponent<Player>() is Player player)
         {
-            ShopManager.Instance.UseItem(this, player);
+            if (ItemSlotModel.Item is BaseConsumableItem consumable)
+            {
+                ShopManager.Instance.UseItem(this, player);
+            }
+            else
+            {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.Error);
+            }
+
+            return;
         }
         else if (go.GetComponent<ItemSlotUI>() is ItemSlotUI itemSlotUI)
         {
@@ -122,5 +129,7 @@ public class ItemSlotUI : MonoBehaviour,
 
             ShopManager.Instance.ManageBuySell(this, inventory);
         }
+
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.ItemDrop);
     }
 }

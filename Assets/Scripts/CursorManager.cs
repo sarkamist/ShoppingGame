@@ -18,7 +18,6 @@ public class CursorManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         if (canvas == null) canvas = GetComponentInParent<Canvas>();
         if (rectTransform == null) rectTransform = (RectTransform) transform;

@@ -5,7 +5,8 @@
     },
     "entries": [
         { "key": "ui.title", "value": "La Tenda de la Bruixa" },
-        { "key": "ui.ending", "value": "Fi!" },
+        { "key": "ui.ending.title", "value": "Fi del joc!" },
+        { "key": "ui.ending.desc", "value": "<color={t:damageColor}>Has gastat tots els teus punts de salut!</color>\n\nRecorda usar menjar i pocions per a restaurar la teva HP la pròxima vegada.\n\nPrem ENTER per a reiniciar." },
         { "key": "ui.button.start_game", "value": "Iniciar Joc" },
         { "key": "ui.button.buy", "value": "<-- Comprar" },
         { "key": "ui.button.sell", "value": "Vendre -->" },
@@ -22,11 +23,17 @@
         { "key": "item.food.pizza_slice.desc", "value": "Una deliciosa porció de pizza.\nRestaura <color={t:HPColor}>{0} PV</color>." },
         { "key": "item.potion.invigorating_potion.name", "value": "Poció revitalitzant" },
         { "key": "item.potion.invigorating_potion.desc", "value": "Una poció misteriosa.\nRestaura <color={t:HPColor}>{0} PV</color> i incrementa els teus <color={t:maxHPColor}>PV màxims</color> en <color={t:maxHPColor}>{1}</color>.\n\nEl flascó buit es pot reutilitzar." },
+        { "key": "item.potion.owlbear_egg.name", "value": "Ou d'os mussol" },
+        { "key": "item.potion.owlbear_egg.desc", "value": "Aquest enorme i rar ou és conegut per les seves propietats revitalitzants quan es consumeix la seva gemma crua.\nRestaura <color={t:HPColor}>{0} PV</color> e incrementa tus <color={t:maxHPColor}>PV máximos</color> en <color={t:maxHPColor}>{1}</color>.\n\nLa pela buida és molt valuosa per als alquimistes." },
         { "key": "item.weapon.battle_axe.name", "value": "Destral de batalla" },
         { "key": "item.weapon.battle_axe.desc", "value": "Una destral de batalla ben equilibrada.\nAugmenta el teu <color={t:damageColor}>dany</color> en <color={t:damageColor}>{0}</color>." },
+        { "key": "item.weapon.explosive_wand.name", "value": "Vareta explosiva" },
+        { "key": "item.weapon.explosive_wand.desc", "value": "Aquesta vareta mística llança boles de foc a gran velocitat contra els teus enemics.\nAugmenta el teu <color={t:damageColor}>dany</color> en <color={t:damageColor}>{0}</color>." },
         { "key": "item.junk.empty_vial.name", "value": "Flascó buit" },
         { "key": "item.junk.empty_vial.desc", "value": "Un flascó de vidre buit." },
         { "key": "item.junk.gold_ingot.name", "value": "Lingot d'or" },
-        { "key": "item.junk.gold_ingot.desc", "value": "Una pesada barra d'or pur, un mercader pagaria una bona suma per ella." }
+        { "key": "item.junk.gold_ingot.desc", "value": "Una pesada barra d'or pur, un mercader pagaria una bona suma per ella." },
+        { "key": "item.junk.owlbear_egg_shell.name", "value": "Pela d'ou d'os mussol" },
+        { "key": "item.junk.owlbear_egg_shell.desc", "value": "La pela d'ou d'os mussol és de gran valor per als alquimistes." }
     ]
 }

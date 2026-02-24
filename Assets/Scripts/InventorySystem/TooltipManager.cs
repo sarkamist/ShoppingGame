@@ -59,14 +59,16 @@ public class TooltipManager : MonoBehaviour
 
     private void FollowMouse()
     {
-        RectTransform canvasRect = (RectTransform) canvas.transform;
+        RectTransform canvasRect = (RectTransform)canvas.transform;
 
-        Vector2 localPoint;
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvasRect,
             (Vector2)Input.mousePosition + ScreenOffset,
             canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
-            out localPoint
+            out var localPoint
         );
 
         rectTransform.anchoredPosition = ClampToCanvas(localPoint, canvasRect);
@@ -75,12 +77,16 @@ public class TooltipManager : MonoBehaviour
     private Vector2 ClampToCanvas(Vector2 desired, RectTransform canvasRect)
     {
         Vector2 size = rectTransform.rect.size;
-        Vector2 min = canvasRect.rect.min + new Vector2(EdgePadding, EdgePadding) + size * 0.5f;
-        Vector2 max = canvasRect.rect.max - new Vector2(EdgePadding, EdgePadding) - size * 0.5f;
+
+        float minX = canvasRect.rect.xMin + EdgePadding;
+        float maxX = canvasRect.rect.xMax - EdgePadding - size.x;
+
+        float maxY = canvasRect.rect.yMax - EdgePadding;
+        float minY = canvasRect.rect.yMin + EdgePadding + size.y;
 
         return new Vector2(
-            Mathf.Clamp(desired.x, min.x, max.x),
-            Mathf.Clamp(desired.y, min.y, max.y)
+            Mathf.Clamp(desired.x, minX, maxX),
+            Mathf.Clamp(desired.y, minY, maxY)
         );
     }
 }

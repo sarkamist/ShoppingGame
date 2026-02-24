@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 450ce6f0aba0ae14887811eed684f81d
+guid: bfb73f5436b0a7242a5d444f8aaacc68
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7534633737545832842
-    second: panel_brown_damaged_0
+      213: -5697578562745768190
+    second: TooltipPanel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 42, y: 42, z: 42, w: 42}
+  spriteBorder: {x: 45, y: 45, z: 45, w: 45}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: panel_brown_damaged_0
+      name: TooltipPanel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67628e0398a9f6790800000000000000
-      internalID: -7534633737545832842
+      spriteID: 20768a7fb722ee0b0800000000000000
+      internalID: -5697578562745768190
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      panel_brown_damaged_0: -7534633737545832842
+      TooltipPanel_0: -5697578562745768190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

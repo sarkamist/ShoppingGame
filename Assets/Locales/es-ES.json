@@ -5,7 +5,8 @@
     },
     "entries": [
         { "key": "ui.title", "value": "La Tienda de la Bruja" },
-        { "key": "ui.ending", "value": "Fin!" },
+        { "key": "ui.ending.title", "value": "¡Fin del juego!" },
+        { "key": "ui.ending.desc", "value": "<color={t:damageColor}>¡Has gastado todos tus puntos de salud!</color>\n\nRecuerda usar comida y pociones para restaurar tu HP la próxima vez.\n\nPulsa ENTER para reiniciar." },
         { "key": "ui.button.start_game", "value": "Iniciar Juego" },
         { "key": "ui.button.buy", "value": "<-- Comprar" },
         { "key": "ui.button.sell", "value": "Vender -->" },
@@ -22,11 +23,17 @@
         { "key": "item.food.pizza_slice.desc", "value": "Una deliciosa porción de pizza.\nRestaura <color={t:HPColor}>{0} PV</color>." },
         { "key": "item.potion.invigorating_potion.name", "value": "Poción revitalizante" },
         { "key": "item.potion.invigorating_potion.desc", "value": "Una poción misteriosa.\nRestaura <color={t:HPColor}>{0} PV</color> e incrementa tus <color={t:maxHPColor}>PV máximos</color> en <color={t:maxHPColor}>{1}</color>.\n\nEl frasco vacío se puede reutilizar." },
+        { "key": "item.potion.owlbear_egg.name", "value": "Huevo de oso búho" },
+        { "key": "item.potion.owlbear_egg.desc", "value": "Este enorme y raro huevo es conocido por sus propiedades revitalizantes cuando se consume su yema cruda.\nRestaura <color={t:HPColor}>{0} PV</color> e incrementa tus <color={t:maxHPColor}>PV máximos</color> en <color={t:maxHPColor}>{1}</color>.\n\nLa cáscara vacía es muy valiosa para los alquimistas." },
         { "key": "item.weapon.battle_axe.name", "value": "Hacha de batalla" },
         { "key": "item.weapon.battle_axe.desc", "value": "Un hacha de batalla bien equilibrada.\nAumenta tu <color={t:damageColor}>daño</color> en <color={t:damageColor}>{0}</color>." },
+        { "key": "item.weapon.explosive_wand.name", "value": "Varita explosiva" },
+        { "key": "item.weapon.explosive_wand.desc", "value": "Esta varita mística lanza bolas de fuego a gran velocidad contra tus enemigos.\nAumenta tu <color={t:damageColor}>daño</color> en <color={t:damageColor}>{0}</color>." },
         { "key": "item.junk.empty_vial.name", "value": "Frasco vacío" },
         { "key": "item.junk.empty_vial.desc", "value": "Un frasco de vidrio vacío." },
         { "key": "item.junk.gold_ingot.name", "value": "Lingote de oro" },
-        { "key": "item.junk.gold_ingot.desc", "value": "Una pesada barra de oro puro, un mercader pagaría una buena suma por ella." }
+        { "key": "item.junk.gold_ingot.desc", "value": "Una pesada barra de oro puro, un mercader pagaría una buena suma por ella." },
+        { "key": "item.junk.owlbear_eggshell.name", "value": "Cáscara de huevo de oso búho" },
+        { "key": "item.junk.owlbear_eggshell.desc", "value": "Aquestes rares peles d'ou són molt apreciades pels alquimistes." }
     ]
 }

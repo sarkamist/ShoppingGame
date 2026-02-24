@@ -2,20 +2,32 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class InventoryUI : MonoBehaviour
 {
     public Inventory InventoryModel;
 
-    public TextMeshProUGUI CoinText;
+    [Header("Animation Parameters")]
+    public float FlickerDuration = 0.125f;
+    public int FlickerCount = 2;
+
+    [Header("References")]
+    public TextMeshProUGUI TextCoins;
     public ItemSlotUI SlotPrefab;
 
-    List<GameObject> itemSlotList;
+    private Image image;
+    private List<GameObject> itemSlotList;
+    private Coroutine inventoryFlickerRoutine;
+    private Coroutine coinFlickerRoutine;
 
     public Action OnItemSlotPointerClick;
 
     void Start()
     {
+        image = GetComponent<Image>();
+
         FillInventoryUI(InventoryModel);
         UpdateCoinUI();
     }
@@ -65,7 +77,8 @@ public class InventoryUI : MonoBehaviour
 
     private GameObject CreateUISlot()
     {
-        var element = GameObject.Instantiate(SlotPrefab, Vector3.zero, Quaternion.identity, transform);
+        var element = Instantiate(SlotPrefab);
+        element.transform.SetParent(transform, false);
         element.Inventory = this;
 
         return element.gameObject;
@@ -73,6 +86,50 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateCoinUI()
     {
-        CoinText.text = $"{InventoryModel.Coins}";
+        TextCoins.text = $"{InventoryModel.Coins}";
+    }
+
+    public void StartInventoryFlicker(Color flickerColor)
+    {
+        if (inventoryFlickerRoutine != null) StopCoroutine(inventoryFlickerRoutine);
+        inventoryFlickerRoutine = StartCoroutine(InventoryFlicker(flickerColor));
+    }
+
+    private System.Collections.IEnumerator InventoryFlicker(Color flickerColor)
+    {
+        Color originalColor = image.color;
+
+        for (int i = 0; i < FlickerCount; i++)
+        {
+            image.color = flickerColor;
+            yield return new WaitForSeconds(FlickerDuration);
+
+            image.color = originalColor;
+            yield return new WaitForSeconds(FlickerDuration);
+        }
+
+        image.color = originalColor;
+    }
+
+    public void StartCoinTextFlicker(Color flickerColor)
+    {
+        if (coinFlickerRoutine != null) StopCoroutine(coinFlickerRoutine);
+        coinFlickerRoutine = StartCoroutine(CoinTextFlicker(flickerColor));
+    }
+
+    private System.Collections.IEnumerator CoinTextFlicker(Color flickerColor)
+    {
+        Color originalColor = TextCoins.color;
+
+        for (int i = 0; i < FlickerCount; i++)
+        {
+            TextCoins.color = flickerColor;
+            yield return new WaitForSeconds(FlickerDuration);
+
+            TextCoins.color = originalColor;
+            yield return new WaitForSeconds(FlickerDuration);
+        }
+
+        TextCoins.color = originalColor;
     }
 }

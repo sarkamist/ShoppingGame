@@ -6,19 +6,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Sources")]
     public AudioSource SFXSource;
-    [Range(0f, 1f)] public float SFXVolume = 0.75f;
     public AudioSource MusicSource;
-    [Range(0f, 1f)] public float MusicVolume = 0.3f;
 
-
-    [Header("SFX")]
-    public AudioClip Error;
-    public AudioClip CoinSpent;
-    public AudioClip ItemGrab;
-    public AudioClip ItemDrop;
-
-    [Header("Music")]
-    public AudioClip BackgroundMusic;
+    public AudioAsset Data;
 
     void Awake()
     {
@@ -29,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayMusic(BackgroundMusic, true);
+        PlayMusic(Data.BackgroundMusic, true);
     }
 
     public void PlayMusic(AudioClip clip, bool loop = true)
@@ -37,13 +27,13 @@ public class AudioManager : MonoBehaviour
         if (MusicSource == null || clip == null) return;
         MusicSource.clip = clip;
         MusicSource.loop = loop;
-        MusicSource.volume = MusicVolume;
+        MusicSource.volume = Data.MusicVolume;
         MusicSource.Play();
     }
 
-    public void PlaySFX(AudioClip clip, float volume = 0.75f)
+    public void PlaySFX(AudioClip clip, float? volume = null)
     {
         if (SFXSource == null) return;
-        SFXSource.PlayOneShot(clip, volume);
+        SFXSource.PlayOneShot(clip, volume.GetValueOrDefault(Data.SFXVolume));
     }
 }

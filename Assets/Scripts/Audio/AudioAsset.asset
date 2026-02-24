@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b2e66d49545edd4b9cbd7edd4cecdd2, type: 3}
+  m_Name: AudioAsset
+  m_EditorClassIdentifier: Assembly-CSharp::AudioAsset
+  Error: {fileID: 8300000, guid: 54d371426031b384c9cbf0b6ed28b3d4, type: 3}
+  ItemSelect: {fileID: 8300000, guid: 413e38e2a904811428fb99729030c060, type: 3}
+  ItemGrab: {fileID: 8300000, guid: 7a67c20bb132264448e0ea83b67439ed, type: 3}
+  ItemDrop: {fileID: 8300000, guid: b4761b6e79e0cf947baf555828cd267e, type: 3}
+  CoinSpent: {fileID: 8300000, guid: 897169b3504ad9548aad7e42a6b5f2ec, type: 3}
+  DrinkPotion: {fileID: 8300000, guid: e28c50b2f1d77f449bf9e50978e2a7d3, type: 3}
+  FoodEaten: {fileID: 8300000, guid: 49b23998e97d597468b1cc32df117d89, type: 3}
+  BackgroundMusic: {fileID: 8300000, guid: cd6d2ab18496bd54384f146517265d23, type: 3}

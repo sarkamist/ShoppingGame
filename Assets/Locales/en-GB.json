@@ -5,7 +5,8 @@
     },
     "entries": [
         { "key": "ui.title", "value": "The Witch's Shop" },
-        { "key": "ui.ending", "value": "The End!" },
+        { "key": "ui.ending.title", "value": "Game Over!" },
+        { "key": "ui.ending.desc", "value": "<color={t:damageColor}>All your health points were spent!</color>\n\nRemember to use food and potions to restore your HP the next time.\n\nPress ENTER to restart." },
         { "key": "ui.button.start_game", "value": "Start Game" },
         { "key": "ui.button.buy", "value": "<-- Buy" },
         { "key": "ui.button.sell", "value": "Sell -->" },
@@ -22,11 +23,17 @@
         { "key": "item.food.pizza_slice.desc", "value": "A delicious slice of pizza.\nRestores <color={t:HPColor}>{0} HP</color>." },
         { "key": "item.potion.invigorating_potion.name", "value": "Invigorating Potion" },
         { "key": "item.potion.invigorating_potion.desc", "value": "A mysterious potion.\nRestores  <color={t:HPColor}>{0} HP</color> and increases your <color={t:maxHPColor}>maximum HP</color> by <color={t:maxHPColor}>{1}</color>.\n\nThe empty vial can be reused." },
+        { "key": "item.potion.owlbear_egg.name", "value": "Owlbear Egg" },
+        { "key": "item.potion.owlbear_egg.desc", "value": "This huge and rare egg is known for its vitalizing properties when its yolk is consumed raw.\nRestores  <color={t:HPColor}>{0} HP</color> and increases your <color={t:maxHPColor}>maximum HP</color> by <color={t:maxHPColor}>{1}</color>.\n\nThe empty shell is valuable for alchemists." },
         { "key": "item.weapon.battle_axe.name", "value": "Battle Axe" },
         { "key": "item.weapon.battle_axe.desc", "value": "A well-balanced battle axe.\nIncreases your <color={t:damageColor}>damage</color> by <color={t:damageColor}>{0}</color>." },
+        { "key": "item.weapon.explosive_wand.name", "value": "Explosive Wand" },
+        { "key": "item.weapon.explosive_wand.desc", "value": "This mystical wand shoots high-speed fireballs at your enemies.\nIncreases your <color={t:damageColor}>damage</color> by <color={t:damageColor}>{0}</color>." },
         { "key": "item.junk.empty_vial.name", "value": "Empty Vial" },
         { "key": "item.junk.empty_vial.desc", "value": "An empty glass vial." },
         { "key": "item.junk.gold_ingot.name", "value": "Gold Ingot" },
-        { "key": "item.junk.gold_ingot.desc", "value": "A weighty bar of pure gold, a merchant would pay a good sum for it." }
+        { "key": "item.junk.gold_ingot.desc", "value": "A weighty bar of pure gold, a merchant would pay a good sum for it." },
+        { "key": "item.junk.owlbear_eggshell.name", "value": "Owlbear Eggshell" },
+        { "key": "item.junk.owlbear_eggshell.desc", "value": "These rare eggshells are highly valued by alchemists." }
     ]
 }

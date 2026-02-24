@@ -6,11 +6,16 @@ public class ShopManager : MonoBehaviour
 {
     public static ShopManager Instance { get; private set; }
 
+    [Header("Shop Parameters")]
+    public float BuyCostModifier = 1.0f;
+    public float SellCostModifier = 0.5f;
+    public Color ErrorFlickerColor = Color.darkRed;
+
+    [Header("References")]
     public Player Player;
     public InventoryUI PlayerInventoryUI;
     public InventoryUI ShopInventoryUI;
-    public float BuyCostModifier = 1.0f;
-    public float SellCostModifier = 0.5f;
+    public GameObject GoldParticlesPrefab;
 
     private ItemSlotUI selectedSlotUI;
 
@@ -37,6 +42,7 @@ public class ShopManager : MonoBehaviour
         if (selectedSlotUI != null) selectedSlotUI.SelectedOverlay.enabled = false;
         selectedSlotUI = itemSlot;
         selectedSlotUI.SelectedOverlay.enabled = true;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.ItemSelect);
     }
 
     public void ClearSelectedSlot()
@@ -63,7 +69,16 @@ public class ShopManager : MonoBehaviour
     public void ManageBuySell(ItemSlotUI originSlotUI, InventoryUI targetInventoryUI)
     {
         InventoryUI originInventoryUI = originSlotUI.Inventory;
+        Inventory targetInventory = targetInventoryUI.InventoryModel;
+        Inventory originInventory = originInventoryUI.InventoryModel;
         BaseItem item = originSlotUI.ItemSlotModel.Item;
+
+        if (!targetInventory.CanHold(item) && !item.IsNonTransferable())
+        {
+            targetInventoryUI.StartInventoryFlicker(ErrorFlickerColor);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.Error);
+            return;
+        }
 
         int itemCost = 0;
         if (originInventoryUI == ShopInventoryUI && targetInventoryUI == PlayerInventoryUI)
@@ -79,25 +94,41 @@ public class ShopManager : MonoBehaviour
             else
             {
                 itemCost = Mathf.FloorToInt(item.Value * SellCostModifier);
-            }
-                
+            } 
         }
 
-        if (itemCost != 0)
+        if (itemCost >= 0)
         {
-            originInventoryUI.InventoryModel.ChangeCoins(itemCost);
-            originInventoryUI.InventoryModel.RemoveItem(originSlotUI.ItemSlotModel);
-            targetInventoryUI.InventoryModel.ChangeCoins(-itemCost);
-            if (item is not Junk)
+            if (targetInventory.Coins >= itemCost)
             {
-                targetInventoryUI.InventoryModel.AddItem(item);
+                originInventory.ChangeCoins(itemCost);
+                targetInventory.ChangeCoins(-itemCost);
+
+                Instantiate(
+                    GoldParticlesPrefab,
+                    targetInventoryUI.TextCoins.rectTransform.position,
+                    Quaternion.identity,
+                    targetInventoryUI.transform
+                ).transform.SetAsLastSibling();
+
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.CoinSpent);
             }
+            else
+            {
+                targetInventoryUI.StartCoinTextFlicker(ErrorFlickerColor);
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.Error);
 
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.CoinSpent);
-
-            ClearSelectedSlot();
+                return;
+            } 
         }
-        
+
+        originInventory.RemoveItem(originSlotUI.ItemSlotModel);
+        if (!item.IsNonTransferable())
+        {
+            targetInventory.AddItem(item);
+        }
+
+        ClearSelectedSlot();
     }
 
     public void OnUseClick()

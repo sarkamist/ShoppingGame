@@ -58,7 +58,7 @@ public class Inventory : ScriptableObject
         Slots.Remove(slot);
     }
 
-    public ItemSlot GetSlot(BaseItem item)
+    private ItemSlot GetSlot(BaseItem item)
     {
         for (int i = 0; i < Slots.Count; i++)
         {
@@ -71,6 +71,11 @@ public class Inventory : ScriptableObject
     public ItemSlot GetSlot(int i)
     {
         return Slots[i];
+    }
+
+    public bool CanHold(BaseItem item)
+    {
+        return (UsedSlots < MaxSlots || GetSlot(item) != null);
     }
 
     public void ChangeCoins(int amount)

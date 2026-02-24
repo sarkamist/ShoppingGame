@@ -358,8 +358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -433485679005941282, guid: 8d020d8053f566c41874559fa958018b,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d020d8053f566c41874559fa958018b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -388,7 +387,6 @@ MonoBehaviour:
   Image: {fileID: 9134991867984479777}
   SelectedOverlay: {fileID: 5157032347269584569}
   AmountText: {fileID: 3635902057272311423}
-  CostLocalizationKey: ui.tooltip.value_line
 --- !u!114 &2180603767520742845
 MonoBehaviour:
   m_ObjectHideFlags: 0

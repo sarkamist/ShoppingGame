@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class ShopManager : MonoBehaviour
     public InventoryUI PlayerInventoryUI;
     public InventoryUI ShopInventoryUI;
     public GameObject GoldParticlesPrefab;
+    public Button BuyButton;
+    public Button SellButton;
+    public Button UseButton;
 
     private ItemSlotUI selectedSlotUI;
 
@@ -42,6 +46,11 @@ public class ShopManager : MonoBehaviour
         if (selectedSlotUI != null) selectedSlotUI.SelectedOverlay.enabled = false;
         selectedSlotUI = itemSlot;
         selectedSlotUI.SelectedOverlay.enabled = true;
+
+        BuyButton.interactable = (selectedSlotUI.Inventory == ShopInventoryUI);
+        SellButton.interactable = (selectedSlotUI.Inventory == PlayerInventoryUI);
+        UseButton.interactable = (selectedSlotUI.Inventory == PlayerInventoryUI);
+
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.ItemSelect);
     }
 
@@ -54,14 +63,22 @@ public class ShopManager : MonoBehaviour
 
     public void OnBuyClick()
     {
-        if (selectedSlotUI == null) return;
+        if (selectedSlotUI == null || selectedSlotUI.Inventory != ShopInventoryUI)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.Error);
+            return;
+        }
 
         ManageBuySell(selectedSlotUI, PlayerInventoryUI);
     }
 
     public void OnSellClick()
     {
-        if (selectedSlotUI == null) return;
+        if (selectedSlotUI == null || selectedSlotUI.Inventory != PlayerInventoryUI)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.Error);
+            return;
+        }
 
         ManageBuySell(selectedSlotUI, ShopInventoryUI);
     }
@@ -133,7 +150,11 @@ public class ShopManager : MonoBehaviour
 
     public void OnUseClick()
     {
-        if (selectedSlotUI == null) return;
+        if (selectedSlotUI == null || selectedSlotUI.Inventory != PlayerInventoryUI)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.Error);
+            return;
+        }
 
         UseItem(selectedSlotUI, Player);
     }

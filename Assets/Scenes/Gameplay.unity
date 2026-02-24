@@ -948,6 +948,9 @@ MonoBehaviour:
   ShopInventoryUI: {fileID: 62576001}
   GoldParticlesPrefab: {fileID: 7287296426719710082, guid: 4582435b33f2e7c4a86741d75325ee20,
     type: 3}
+  BuyButton: {fileID: 827637568}
+  SellButton: {fileID: 1182170546}
+  UseButton: {fileID: 1778100643}
 --- !u!114 &511679175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1768,7 +1771,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 827637569}
   m_OnClick:
     m_PersistentCalls:
@@ -2495,7 +2498,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1182170547}
   m_OnClick:
     m_PersistentCalls:
@@ -4514,7 +4517,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1778100644}
   m_OnClick:
     m_PersistentCalls:

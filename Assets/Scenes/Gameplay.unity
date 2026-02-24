@@ -424,7 +424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 31.872498, y: -31.872498}
+  m_AnchoredPosition: {x: 31.872559, y: -31.872498}
   m_SizeDelta: {x: 325, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &94388657
@@ -5307,9 +5307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39229167b04b5554eb785d771a394a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  GhostImagePrefab: {fileID: 121629807622657807, guid: 1405966b4a029154580b3b32050ba638,
-    type: 3}
   DragAlpha: 0.5
+  dragObject: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

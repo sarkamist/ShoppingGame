@@ -77,19 +77,19 @@ public class ItemSlotUI : MonoBehaviour,
         CursorManager.Instance.ChangeState(CursorState.Drag);
 
         Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, DragManager.Instance.DragAlpha);
-        DragManager.Instance.Begin(ItemSlotModel.Item.Image, eventData.position);
+        DragManager.Instance.Begining(ItemSlotModel.Item.Image, eventData.position);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.ItemGrab);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        DragManager.Instance.Move(eventData.position);
+        DragManager.Instance.Moving(eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Image.color = Color.white;
-        DragManager.Instance.Hide();
+        DragManager.Instance.Ending();
         CursorManager.Instance.ChangeState(CursorState.Normal);
 
         if (ItemSlotModel == null) return;

@@ -1,64 +1,52 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DragManager : MonoBehaviour
 {
-    public static DragManager Instance { get; private set; }
+    public static DragManager Instance;
 
-    public GameObject GhostImagePrefab;
-    [Range(0, 1)] public float DragAlpha = 0.5f; 
+    [Range(0, 1)] public float DragAlpha = 0.5f;
+    public GameObject dragObject;
 
-    private Canvas canvas;
-    private RectTransform ghostRectTransform;
     private Image ghostImage;
+    private RectTransform ghostRectTransform;
+    private RectTransform canvasRectTrasnform;
+    private Canvas canvas;
+    private Vector2 localPoint;
 
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-
-        if (canvas == null) canvas = GetComponentInParent<Canvas>();
-        SetupGhostImage();
+        canvas = GetComponentInParent<Canvas>();
+        ghostImage = dragObject.GetComponent<Image>();
+        ghostRectTransform = dragObject.GetComponent<RectTransform>();
+        canvasRectTrasnform = canvas.GetComponent<RectTransform>();
+        dragObject.SetActive(false);
     }
-
-    private void SetupGhostImage()
+    public void Begining(Sprite sprite, Vector2 position)
     {
-        if (ghostImage != null) return;
-
-        GameObject ghostObject = Instantiate(GhostImagePrefab, (RectTransform) transform);
-        ghostRectTransform = ghostObject.GetComponent<RectTransform>();
-        ghostImage = ghostObject.GetComponent<Image>();
-
-        ghostObject.SetActive(false);
-    }
-
-    public void Begin(Sprite sprite, Vector2 screenPos)
-    {
-        SetupGhostImage();
-
         ghostImage.sprite = sprite;
         ghostImage.color = new Color(ghostImage.color.r, ghostImage.color.g, ghostImage.color.b, DragAlpha);
 
-        Move(screenPos);
-        ghostRectTransform.gameObject.SetActive(true);
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTrasnform, position,
+        canvas.worldCamera, out localPoint))
+        {
+            ghostRectTransform.anchoredPosition = localPoint;
+            dragObject.SetActive(true);
+        }
     }
-
-    public void Move(Vector2 screenPos)
+    public void Moving(Vector2 position)
     {
-        if (ghostRectTransform == null || canvas == null) return;
-
-        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
-
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            (RectTransform) canvas.transform, screenPos, cam, out var localPoint)
-        )
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), position,
+        canvas.worldCamera, out localPoint))
         {
             ghostRectTransform.anchoredPosition = localPoint;
         }
     }
-
-    public void Hide()
+    public void Ending()
     {
-        if (ghostRectTransform != null) ghostRectTransform.gameObject.SetActive(false);
+        dragObject.SetActive(false);
     }
 }

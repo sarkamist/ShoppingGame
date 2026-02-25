@@ -15,23 +15,35 @@
         { "key": "ui.button.use_item", "value": "Utilitzar" },
         { "key": "ui.button.leave_shop", "value": "Sortir de la botiga" },
         { "key": "ui.tooltip.merchant_name", "value": "La Bruixa" },
-        { "key": "ui.tooltip.merchant_desc", "value": "Bon dia! Estic disposada a vendre articles del meu inventari per el <color={t:infoColor}>{0}</color> del seu valor i comprar articles del teu inventari per el <color={t:infoColor}>{1}</color> del seu valor." },
+        { "key": "ui.tooltip.merchant_desc", "value": "Bon dia! Estic disposada a vendre articles del meu inventari per el <color={t:infoColor}>{0:P0}</color> del seu valor i comprar articles del teu inventari per el <color={t:infoColor}>{1:P0}</color> del seu valor." },
+        { "key": "ui.tooltip.type_line", "value": "<align=center><color={t:highlightColor}>• {0} •</color></align>" },
         { "key": "ui.tooltip.value_line", "value": "<b>Valor:</b> <color={t:goldColor}>{0} monedes</color>" },
-        { "key": "ui.tooltip.junk_info_true", "value": "<align=center><color={t:infoColor}><i>Es ven pel seu valor total.\nNomés es pot vendre.</i></color></align>" },
-        { "key": "ui.tooltip.junk_info_false", "value": "<align=center><color={t:infoColor}><i>Només es pot vendre.</i></color></align>" },
         
+        { "key": "item.types.base", "value": "Altre" },
+        
+        { "key": "item.types.consumable", "value": "Consumible" },
+        
+        { "key": "item.types.food", "value": "Menjar" },
         { "key": "item.food.cookie.name", "value": "Galeta" },
         { "key": "item.food.cookie.desc", "value": "Una dolça y saborosa galeta.\nRestaura <color={t:HPColor}>{0} PV</color>." },
         { "key": "item.food.pizza_slice.name", "value": "Porció de pizza" },
         { "key": "item.food.pizza_slice.desc", "value": "Una deliciosa porció de pizza.\nRestaura <color={t:HPColor}>{0} PV</color>." },
+        
+        { "key": "item.types.potion", "value": "Poció" },
         { "key": "item.potion.invigorating_potion.name", "value": "Poció revitalitzant" },
         { "key": "item.potion.invigorating_potion.desc", "value": "Una poció misteriosa.\nRestaura <color={t:HPColor}>{0} PV</color> i incrementa els teus <color={t:maxHPColor}>PV màxims</color> en <color={t:maxHPColor}>{1}</color>.\n\nEl flascó buit es pot reutilitzar." },
         { "key": "item.potion.owlbear_egg.name", "value": "Ou d'os mussol" },
         { "key": "item.potion.owlbear_egg.desc", "value": "Aquest enorme i rar ou és conegut per les seves propietats revitalitzants quan es consumeix la seva gemma crua.\nRestaura <color={t:HPColor}>{0} PV</color> e incrementa tus <color={t:maxHPColor}>PV máximos</color> en <color={t:maxHPColor}>{1}</color>.\n\nLa pela buida és molt valuosa per als alquimistes." },
+        
+        { "key": "item.types.weapon", "value": "Arma" },
         { "key": "item.weapon.battle_axe.name", "value": "Destral de batalla" },
         { "key": "item.weapon.battle_axe.desc", "value": "Una destral de batalla ben equilibrada.\nAugmenta el teu <color={t:damageColor}>dany</color> en <color={t:damageColor}>{0}</color>." },
         { "key": "item.weapon.explosive_wand.name", "value": "Vareta explosiva" },
         { "key": "item.weapon.explosive_wand.desc", "value": "Aquesta vareta mística llança boles de foc a gran velocitat contra els teus enemics.\nAugmenta el teu <color={t:damageColor}>dany</color> en <color={t:damageColor}>{0}</color>." },
+        
+        { "key": "item.types.bauble", "value": "Andròmina" },
+        { "key": "item.types.bauble.desc_true", "value": "<align=center><color={t:infoColor}><i>Es ven pel seu valor total.\nNomés es pot vendre.</i></color></align>" },
+        { "key": "item.types.bauble.desc_false", "value": "<align=center><color={t:infoColor}><i>Només es pot vendre.</i></color></align>" },
         { "key": "item.junk.empty_vial.name", "value": "Flascó buit" },
         { "key": "item.junk.empty_vial.desc", "value": "Un flascó de vidre buit." },
         { "key": "item.junk.gold_ingot.name", "value": "Lingot d'or" },

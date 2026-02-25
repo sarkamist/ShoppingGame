@@ -15,28 +15,40 @@
         { "key": "ui.button.use_item", "value": "Usar" },
         { "key": "ui.button.leave_shop", "value": "Salir de la tienda" },
         { "key": "ui.tooltip.merchant_name", "value": "La Bruja" },
-        { "key": "ui.tooltip.merchant_desc", "value": "¡Buenos días! Estoy dispuesta a vender artículos de mi inventario por el <color={t:infoColor}>{0}</color> de su valor y comprar artículos de tu inventario por el <color={t:infoColor}>{1}</color> de su valor." },
+        { "key": "ui.tooltip.merchant_desc", "value": "¡Buenos días! Estoy dispuesta a vender artículos de mi inventario por el <color={t:infoColor}>{0:P0}</color> de su valor y comprar artículos de tu inventario por el <color={t:infoColor}>{1:P0}</color> de su valor." },
+        { "key": "ui.tooltip.type_line", "value": "<align=center><color={t:highlightColor}>• {0} •</color></align>" },
         { "key": "ui.tooltip.value_line", "value": "<b>Valor:</b> <color={t:goldColor}>{0} monedas</color>" },
-        { "key": "ui.tooltip.junk_info_true", "value": "<align=center><color={t:infoColor}><i>Se vende por su valor total.\nSolo se puede vender.</i></color></align>" },
-        { "key": "ui.tooltip.junk_info_false", "value": "<align=center><color={t:infoColor}><i>Solo se puede vender.</i></color></align>" },
         
+        { "key": "item.types.base", "value": "Otro" },
+        
+        { "key": "item.types.consumable", "value": "Consumible" },
+        
+        { "key": "item.types.food", "value": "Comida" },
         { "key": "item.food.cookie.name", "value": "Galleta" },
         { "key": "item.food.cookie.desc", "value": "Una dulce y sabrosa galleta.\nRestaura <color={t:HPColor}>{0} PV</color>." },
         { "key": "item.food.pizza_slice.name", "value": "Porción de pizza" },
         { "key": "item.food.pizza_slice.desc", "value": "Una deliciosa porción de pizza.\nRestaura <color={t:HPColor}>{0} PV</color>." },
+        
+        { "key": "item.types.potion", "value": "Poción" },
         { "key": "item.potion.invigorating_potion.name", "value": "Poción revitalizante" },
         { "key": "item.potion.invigorating_potion.desc", "value": "Una poción misteriosa.\nRestaura <color={t:HPColor}>{0} PV</color> e incrementa tus <color={t:maxHPColor}>PV máximos</color> en <color={t:maxHPColor}>{1}</color>.\n\nEl frasco vacío se puede reutilizar." },
         { "key": "item.potion.owlbear_egg.name", "value": "Huevo de oso búho" },
         { "key": "item.potion.owlbear_egg.desc", "value": "Este enorme y raro huevo es conocido por sus propiedades revitalizantes cuando se consume su yema cruda.\nRestaura <color={t:HPColor}>{0} PV</color> e incrementa tus <color={t:maxHPColor}>PV máximos</color> en <color={t:maxHPColor}>{1}</color>.\n\nLa cáscara vacía es muy valiosa para los alquimistas." },
+        
+        { "key": "item.types.weapon", "value": "Arma" },
         { "key": "item.weapon.battle_axe.name", "value": "Hacha de batalla" },
         { "key": "item.weapon.battle_axe.desc", "value": "Un hacha de batalla bien equilibrada.\nAumenta tu <color={t:damageColor}>daño</color> en <color={t:damageColor}>{0}</color>." },
         { "key": "item.weapon.explosive_wand.name", "value": "Varita explosiva" },
         { "key": "item.weapon.explosive_wand.desc", "value": "Esta varita mística lanza bolas de fuego a gran velocidad contra tus enemigos.\nAumenta tu <color={t:damageColor}>daño</color> en <color={t:damageColor}>{0}</color>." },
-        { "key": "item.junk.empty_vial.name", "value": "Frasco vacío" },
-        { "key": "item.junk.empty_vial.desc", "value": "Un frasco de vidrio vacío." },
-        { "key": "item.junk.gold_ingot.name", "value": "Lingote de oro" },
-        { "key": "item.junk.gold_ingot.desc", "value": "Una pesada barra de oro puro, un mercader pagaría una buena suma por ella." },
-        { "key": "item.junk.owlbear_eggshell.name", "value": "Cáscara de huevo de oso búho" },
-        { "key": "item.junk.owlbear_eggshell.desc", "value": "Aquestes rares peles d'ou són molt apreciades pels alquimistes." }
+        
+        { "key": "item.types.bauble", "value": "Cachivache" },
+        { "key": "item.types.bauble.desc_true", "value": "<align=center><color={t:infoColor}><i>Se vende por su valor total.\nSolo se puede vender.</i></color></align>" },
+        { "key": "item.types.bauble.desc_false", "value": "<align=center><color={t:infoColor}><i>Solo se puede vender.</i></color></align>" },
+        { "key": "item.bauble.empty_vial.name", "value": "Frasco vacío" },
+        { "key": "item.bauble.empty_vial.desc", "value": "Un frasco de vidrio vacío." },
+        { "key": "item.bauble.gold_ingot.name", "value": "Lingote de oro" },
+        { "key": "item.bauble.gold_ingot.desc", "value": "Una pesada barra de oro puro, un mercader pagaría una buena suma por ella." },
+        { "key": "item.bauble.owlbear_eggshell.name", "value": "Cáscara de huevo de oso búho" },
+        { "key": "item.bauble.owlbear_eggshell.desc", "value": "Aquestes rares peles d'ou són molt apreciades pels alquimistes." }
     ]
 }

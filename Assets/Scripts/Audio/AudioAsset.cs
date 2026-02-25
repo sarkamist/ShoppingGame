@@ -13,6 +13,10 @@ public class AudioAsset : ScriptableObject
     public AudioClip DrinkPotion;
     public AudioClip FoodEaten;
     public AudioClip DamageReceived;
+    public AudioClip PopSound;
+    public AudioClip DoorOpen;
+    public AudioClip DoorClose;
+    public AudioClip DefeatSound;
 
     [Header("Music")]
     [Range(0f, 1f)] public float MusicVolume = 0.05f;

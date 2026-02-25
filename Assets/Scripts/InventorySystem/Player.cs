@@ -1,5 +1,4 @@
-using JetBrains.Annotations;
-using System.Data;
+using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -7,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class Player : MonoBehaviour, IConsume, IPointerClickHandler
+public class Player : MonoBehaviour, IConsume, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public Inventory Inventory;
 
@@ -93,11 +92,11 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
         Inventory playerInventory = ShopManager.Instance.PlayerInventoryUI.InventoryModel;
         if (consumable is Potion potion)
         {
-            if (potion.JunkOnConsume)
+            if (potion.BaubleOnConsume)
             {
-                if (playerInventory.CanHold(potion.JunkItem))
+                if (playerInventory.CanHold(potion.BaubleItem))
                 {
-                    playerInventory.AddItem(potion.JunkItem);
+                    playerInventory.AddItem(potion.BaubleItem);
                 }
                 else
                 {
@@ -144,13 +143,23 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        CursorManager.Instance.AddState(CursorState.Attack);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        CursorManager.Instance.RemoveState(CursorState.Attack);
+    }
+
     public void StartHealthBarFlicker()
     {
         if (healthBarFlickerRoutine != null) StopCoroutine(healthBarFlickerRoutine);
-        healthBarFlickerRoutine = StartCoroutine(HealthBarFlicker());
+        healthBarFlickerRoutine = StartCoroutine(HealthBarFlickerRoutine());
     }
 
-    private System.Collections.IEnumerator HealthBarFlicker()
+    private IEnumerator HealthBarFlickerRoutine()
     {
         Color c = HealthBarBackground.color;
 
@@ -169,10 +178,10 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler
     public void StartDamageCounterFlicker()
     {
         if (textDamageFlickerRoutine != null) StopCoroutine(textDamageFlickerRoutine);
-        textDamageFlickerRoutine = StartCoroutine(DamageCounterFlicker());
+        textDamageFlickerRoutine = StartCoroutine(DamageCounterFlickerRoutine());
     }
 
-    private System.Collections.IEnumerator DamageCounterFlicker()
+    private IEnumerator DamageCounterFlickerRoutine()
     {
         Image damageCounter = TextDamage.GetComponentInParent<Image>();
         Color c = damageCounter.color;

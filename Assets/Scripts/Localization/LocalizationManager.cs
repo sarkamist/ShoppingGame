@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Security.Principal;
 using UnityEngine;
 
 public class LocalizationManager : MonoBehaviour
 {
-    
-
     public static LocalizationManager Instance { get; private set; }
+    public static LocalizationFormatProvider FormatProvider = new();
 
     public LocalizationAsset Data;
 
@@ -76,7 +76,7 @@ public class LocalizationManager : MonoBehaviour
     public string LocalizeWithFormat(string key, params object[] args)
     {
         var raw = Localize(key);
-        try { return string.Format(raw, args); }
+        try { return string.Format(FormatProvider, raw, args); }
         catch { return raw; }
     }
 
@@ -134,7 +134,7 @@ public class LocalizationManager : MonoBehaviour
     private void BuildTokenMap()
     {
         tokenMap = new Dictionary<string, string>(StringComparer.Ordinal);
-        foreach (var t in Data.Tokens)
+        foreach (var t in Data.LocalizationTokens)
         {
             if (string.IsNullOrWhiteSpace(t.key)) continue;
             tokenMap[t.key.Trim()] = t.value ?? "";
@@ -154,5 +154,76 @@ public class LocalizationManager : MonoBehaviour
         }
 
         return input;
+    }
+}
+
+public sealed class LocalizationFormatProvider : IFormatProvider, ICustomFormatter
+{
+    private readonly IFormatProvider fallbackFormatProvider;
+
+    public LocalizationFormatProvider(IFormatProvider inner = null)
+    {
+        fallbackFormatProvider = inner ?? CultureInfo.CurrentCulture;
+    }
+
+    public object GetFormat(Type formatType)
+    {
+        return formatType == typeof(ICustomFormatter) ? this : fallbackFormatProvider.GetFormat(formatType);
+    }
+
+    public string Format(string format, object arg, IFormatProvider formatProvider)
+    {
+        if (arg == null) return string.Empty;
+
+        if (string.IsNullOrEmpty(format)) return FormatFallback(null, arg);
+
+        var parts = format.Split(':');
+
+        bool applyAbs = false;
+        string nativeFormat = null;
+
+        for (int i = 0; i < parts.Length; i++)
+        {
+            var part = parts[i].Trim();
+
+            if (part.Equals("ABS", StringComparison.OrdinalIgnoreCase))
+            {
+                applyAbs = true;
+                continue;
+            }
+
+            if (!string.IsNullOrEmpty(part) && nativeFormat == null)
+                nativeFormat = part;
+        }
+
+        if (applyAbs)
+            arg = ApplyAbs(arg);
+
+        return FormatFallback(nativeFormat, arg);
+    }
+
+    private object ApplyAbs(object arg)
+    {
+        return arg switch
+        {
+            sbyte v => (sbyte)Math.Abs(v),
+            short v => (short)Math.Abs(v),
+            int v => Math.Abs(v),
+            long v => Math.Abs(v),
+
+            float v => Math.Abs(v),
+            double v => Math.Abs(v),
+            decimal v => Math.Abs(v),
+
+            _ => arg
+        };
+    }
+
+    private string FormatFallback(string format, object arg)
+    {
+        if (arg is IFormattable f)
+            return f.ToString(format, fallbackFormatProvider);
+
+        return arg.ToString();
     }
 }

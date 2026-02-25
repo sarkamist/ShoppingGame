@@ -18,7 +18,7 @@ MonoBehaviour:
   Value: 30
   IsStackable: 1
   StackSize: 3
-  MaxHealthIncrease: 25
   CurrentHealthIncrease: 25
-  JunkOnConsume: 1
-  JunkItem: {fileID: 11400000, guid: fd88612ac50f1e54fbc14cdfcb6fd525, type: 2}
+  MaxHealthIncrease: 25
+  BaubleOnConsume: 1
+  BaubleItem: {fileID: 11400000, guid: fd88612ac50f1e54fbc14cdfcb6fd525, type: 2}

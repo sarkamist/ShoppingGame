@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DragManager : MonoBehaviour
@@ -34,6 +35,8 @@ public class DragManager : MonoBehaviour
 
     public void Begin(Sprite sprite, Vector2 screenPos)
     {
+        CursorManager.Instance.AddState(CursorState.Drag);
+
         SetupGhostImage();
 
         ghostImage.sprite = sprite;
@@ -59,6 +62,7 @@ public class DragManager : MonoBehaviour
 
     public void Hide()
     {
+        CursorManager.Instance.RemoveState(CursorState.Drag);
         if (ghostRectTransform != null) ghostRectTransform.gameObject.SetActive(false);
     }
 }

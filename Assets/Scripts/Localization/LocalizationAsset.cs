@@ -33,7 +33,7 @@ public class LocalizationAsset : ScriptableObject
     }
 
     [Serializable]
-    public struct Token
+    public struct LocalizationToken
     {
         public string key;
         public string value;
@@ -43,10 +43,11 @@ public class LocalizationAsset : ScriptableObject
     public string FallbackLanguageCode = "en-GB";
     public string CurrentLanguageCode = "en-GB";
     public List<LocaleAsset> Locales;
-    public List<Token> Tokens;
+    public List<LocalizationToken> LocalizationTokens;
 
     [Header("Global Localization Keys")]
+    public string TypeLineKey;
     public string ValueLineKey;
-    public string JunkInfoTrueKey;
-    public string JunkInfoFalseKey;
+    public string BaubleInfoTrueKey;
+    public string BaubleInfoFalseKey;
 }

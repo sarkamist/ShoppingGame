@@ -53,14 +53,20 @@ public class ItemSlotUI : MonoBehaviour,
         BaseItem item = ItemSlotModel.Item;
 
         string name = LocalizationManager.Instance.Localize(item.NameKey);
+        string type = LocalizationManager.Instance.LocalizeWithFormat(
+            LocalizationManager.Instance.Data.TypeLineKey,
+            new object[] { LocalizationManager.Instance.Localize(item.TypeKey) }
+        );
         object[] formatArgs = item.GetDescriptionFormatArgs();
-        string cost = LocalizationManager.Instance.LocalizeWithFormat(LocalizationManager.Instance.Data.ValueLineKey, new object[] { item.Value });
-        if (item is Junk junk)
+        string cost = LocalizationManager.Instance.LocalizeWithFormat(
+            LocalizationManager.Instance.Data.ValueLineKey, new object[] { item.Value }
+        );
+        if (item is Bauble junk)
         {
-            string junkKey = (junk.IsSoldAtBuyValue) ? LocalizationManager.Instance.Data.JunkInfoTrueKey : LocalizationManager.Instance.Data.JunkInfoFalseKey;
+            string junkKey = (junk.IsSoldAtBuyValue) ? LocalizationManager.Instance.Data.BaubleInfoTrueKey : LocalizationManager.Instance.Data.BaubleInfoFalseKey;
             cost += $"\n\n{LocalizationManager.Instance.Localize(junkKey)}";
         }
-        string description = $"{cost}\n\n{LocalizationManager.Instance.LocalizeWithFormat(item.DescriptionKey, formatArgs)}";
+        string description = $"{type}\n\n{cost}\n\n{LocalizationManager.Instance.LocalizeWithFormat(item.DescriptionKey, formatArgs)}";
         tooltipRequestId = TooltipManager.Instance.Show(name, description);
     }
 
@@ -75,7 +81,6 @@ public class ItemSlotUI : MonoBehaviour,
     {
         if (ItemSlotModel == null) return;
         if (ShopManager.Instance != null) ShopManager.Instance.ClearSelectedSlot();
-        CursorManager.Instance.ChangeState(CursorState.Drag);
 
         Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, DragManager.Instance.DragAlpha);
         DragManager.Instance.Begin(ItemSlotModel.Item.Image, eventData.position);
@@ -91,11 +96,8 @@ public class ItemSlotUI : MonoBehaviour,
     {
         Image.color = Color.white;
         DragManager.Instance.Hide();
-        CursorManager.Instance.ChangeState(CursorState.Normal);
 
         if (ItemSlotModel == null) return;
-
-        
 
         var go = eventData.pointerCurrentRaycast.gameObject;
         if (go == null)
@@ -119,7 +121,19 @@ public class ItemSlotUI : MonoBehaviour,
         }
         else if (go.GetComponent<ItemSlotUI>() is ItemSlotUI itemSlotUI)
         {
-            if (Inventory == itemSlotUI.Inventory) return;
+            if (
+                Inventory == itemSlotUI.Inventory
+                && itemSlotUI != this
+                && itemSlotUI.ItemSlotModel != null
+                && itemSlotUI.ItemSlotModel.CanHold(ItemSlotModel.Item)
+            )
+            {
+                itemSlotUI.ItemSlotModel.AddOne();
+                Inventory.InventoryModel.RemoveItem(ItemSlotModel);
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.PopSound);
+                return;
+            }
+            else if (Inventory == itemSlotUI.Inventory) return;
 
             ShopManager.Instance.ManageBuySell(this, itemSlotUI.Inventory);
         }

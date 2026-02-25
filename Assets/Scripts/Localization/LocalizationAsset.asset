@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: LocalizationAsset
   m_EditorClassIdentifier: Assembly-CSharp::LocalizationAsset
   FallbackLanguageCode: en-GB
-  CurrentLanguageCode: it-IT
+  CurrentLanguageCode: en-GB
   Locales:
   - json: {fileID: 4900000, guid: 32abe6f3b7e9a0743be75ac96a2818dc, type: 3}
   - json: {fileID: 4900000, guid: b114b8141359b4a429a1ef9b60ee649e, type: 3}
   - json: {fileID: 4900000, guid: 5135568df20077b46ab834923a8cde0a, type: 3}
   - json: {fileID: 4900000, guid: 284015de0810378418d68dcab4e6b443, type: 3}
-  Tokens:
+  LocalizationTokens:
   - key: infoColor
     value: '#4169E1'
   - key: highlightColor
     value: '#C977FF'
+  - key: entityColor
+    value: '#66CCFF'
   - key: goldColor
     value: '#DAA520'
   - key: HPColor
@@ -32,6 +34,7 @@ MonoBehaviour:
     value: '#228B22'
   - key: damageColor
     value: '#D91340'
+  TypeLineKey: ui.tooltip.type_line
   ValueLineKey: ui.tooltip.value_line
-  JunkInfoTrueKey: ui.tooltip.junk_info_true
-  JunkInfoFalseKey: ui.tooltip.junk_info_false
+  BaubleInfoTrueKey: item.types.bauble.desc_true
+  BaubleInfoFalseKey: item.types.bauble.desc_false

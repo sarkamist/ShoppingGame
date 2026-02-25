@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class InventoryUI : MonoBehaviour
 
     private Image image;
     private List<GameObject> itemSlotList;
+    private Color inventoryOriginalColor;
+    private Color textCoinsOriginalColor;
     private Coroutine inventoryFlickerRoutine;
     private Coroutine coinFlickerRoutine;
 
@@ -27,6 +30,9 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         image = GetComponent<Image>();
+
+        inventoryOriginalColor = image.color;
+        textCoinsOriginalColor = TextCoins.color;
 
         FillInventoryUI(InventoryModel);
         UpdateCoinUI();
@@ -92,44 +98,40 @@ public class InventoryUI : MonoBehaviour
     public void StartInventoryFlicker(Color flickerColor)
     {
         if (inventoryFlickerRoutine != null) StopCoroutine(inventoryFlickerRoutine);
-        inventoryFlickerRoutine = StartCoroutine(InventoryFlicker(flickerColor));
+        inventoryFlickerRoutine = StartCoroutine(InventoryFlickerRoutine(flickerColor));
     }
 
-    private System.Collections.IEnumerator InventoryFlicker(Color flickerColor)
+    private IEnumerator InventoryFlickerRoutine(Color flickerColor)
     {
-        Color originalColor = image.color;
-
         for (int i = 0; i < FlickerCount; i++)
         {
             image.color = flickerColor;
             yield return new WaitForSeconds(FlickerDuration);
 
-            image.color = originalColor;
+            image.color = inventoryOriginalColor;
             yield return new WaitForSeconds(FlickerDuration);
         }
 
-        image.color = originalColor;
+        image.color = inventoryOriginalColor;
     }
 
-    public void StartCoinTextFlicker(Color flickerColor)
+    public void StartTextCoinsFlicker(Color flickerColor)
     {
         if (coinFlickerRoutine != null) StopCoroutine(coinFlickerRoutine);
-        coinFlickerRoutine = StartCoroutine(CoinTextFlicker(flickerColor));
+        coinFlickerRoutine = StartCoroutine(TextCoinsFlickerRoutine(flickerColor));
     }
 
-    private System.Collections.IEnumerator CoinTextFlicker(Color flickerColor)
+    private IEnumerator TextCoinsFlickerRoutine(Color flickerColor)
     {
-        Color originalColor = TextCoins.color;
-
         for (int i = 0; i < FlickerCount; i++)
         {
             TextCoins.color = flickerColor;
             yield return new WaitForSeconds(FlickerDuration);
 
-            TextCoins.color = originalColor;
+            TextCoins.color = textCoinsOriginalColor;
             yield return new WaitForSeconds(FlickerDuration);
         }
 
-        TextCoins.color = originalColor;
+        TextCoins.color = textCoinsOriginalColor;
     }
 }

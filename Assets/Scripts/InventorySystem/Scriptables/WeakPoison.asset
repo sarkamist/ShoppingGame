@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22ad38430cac44440a67a7754a0e5ee1, type: 3}
-  m_Name: OwlbearEgg
+  m_Name: WeakPoison
   m_EditorClassIdentifier: Assembly-CSharp::Potion
-  NameKey: item.potion.owlbear_egg.name
-  DescriptionKey: item.potion.owlbear_egg.desc
-  Image: {fileID: 21300000, guid: ce34379ac107ac849a4f2c2ee1ce0059, type: 3}
-  Value: 75
-  IsStackable: 0
-  StackSize: 1
-  CurrentHealthIncrease: 50
-  MaxHealthIncrease: 50
+  NameKey: item.potion.weak_poison.name
+  DescriptionKey: item.potion.weak_poison.desc
+  Image: {fileID: 21300000, guid: 156badb58ef601146803544e97abc318, type: 3}
+  Value: 20
+  IsStackable: 1
+  StackSize: 3
+  CurrentHealthIncrease: -10
+  MaxHealthIncrease: 0
   BaubleOnConsume: 1
-  BaubleItem: {fileID: 11400000, guid: 94d8ebbb650e70a41aba54d593d0ff7f, type: 2}
+  BaubleItem: {fileID: 11400000, guid: fd88612ac50f1e54fbc14cdfcb6fd525, type: 2}

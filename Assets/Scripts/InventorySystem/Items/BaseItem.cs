@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class BaseItem : ScriptableObject
 {
+    public virtual string TypeKey => "item.types.base";
+
     public string NameKey;
     public string DescriptionKey;
     public Sprite Image;

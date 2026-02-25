@@ -34,14 +34,33 @@ public class TooltipManager : MonoBehaviour
         FollowMouse();
     }
 
-    public int Show(string title, string desc)
+    public int Show(string title = null, string desc = null)
     {
         currentRequestId++;
 
-        NameText.text = title;
-        NameText.ForceMeshUpdate();
-        DescriptionText.text = desc;
-        DescriptionText.ForceMeshUpdate();
+        if (!string.IsNullOrEmpty(title))
+        {
+            NameText.gameObject.SetActive(true);
+            NameText.text = title;
+            NameText.ForceMeshUpdate();
+        }
+        else
+        {
+            NameText.gameObject.SetActive(false);
+        }
+
+
+        if (!string.IsNullOrEmpty(desc))
+        {
+            DescriptionText.gameObject.SetActive(true);
+            DescriptionText.text = desc;
+            DescriptionText.ForceMeshUpdate();
+        }
+        else
+        {
+            DescriptionText.gameObject.SetActive(false);
+        }
+
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
 

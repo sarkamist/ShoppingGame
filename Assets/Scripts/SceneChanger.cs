@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SceneChanger : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class SceneChanger : MonoBehaviour
     private readonly string gameplayScene = "Gameplay";
     private readonly string endingScene = "Ending";
     private readonly string victoryScene = "Victory";
+
+    private bool isTransitioning;
 
     public string CurrentScene => SceneManager.GetActiveScene().name;
 
@@ -34,39 +37,54 @@ public class SceneChanger : MonoBehaviour
     {
         if (scene.name == titleScene)
         {
-            GameObject.Find("Button").GetComponent<Button>().onClick.AddListener(OnRestartGame);
+            Button startButton = GameObject.Find("StartButton")?.GetComponent<Button>();
+            if (startButton != null)
+            {
+                startButton.onClick.RemoveListener(OnRestartGame);
+                startButton.onClick.AddListener(OnRestartGame);
+            }
         }
     }
 
     public void OnRestartGame()
     {
+        if (isTransitioning) return;
+
         if (CurrentScene == titleScene)
         {
-            SceneManager.LoadScene(gameplayScene);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.DoorOpen);
+            StartLoadScene(gameplayScene);
         }
         else if (CurrentScene == endingScene || CurrentScene == victoryScene)
         {
-            SceneManager.LoadScene(titleScene);
+            StartLoadScene(titleScene);
         }
         else
         {
-            SceneManager.LoadScene(victoryScene);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.DoorClose);
+            StartLoadScene(victoryScene);
         }
     }
 
     public void OnHealthBarDepleted()
     {
+        if (isTransitioning) return;
+
         if (CurrentScene == gameplayScene)
         {
-            SceneManager.LoadScene(endingScene);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.DefeatSound);
+            StartLoadScene(endingScene);
         }
     }
 
     public void OnVictory()
     {
+        if (isTransitioning) return;
+
         if (CurrentScene == gameplayScene)
         {
-            SceneManager.LoadScene(victoryScene);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.DoorClose);
+            StartLoadScene(victoryScene);
         }
     }
 
@@ -77,5 +95,25 @@ public class SceneChanger : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    private void StartLoadScene(string sceneName)
+    {
+        StartCoroutine(LoadSceneRoutine(sceneName));
+    }
+
+    private IEnumerator LoadSceneRoutine(string sceneName)
+    {
+        isTransitioning = true;
+
+        if (ScreenFader.Instance != null) yield return ScreenFader.Instance.FadeOut();
+
+        SceneManager.LoadScene(sceneName);
+
+        yield return new WaitForFixedUpdate();
+
+        if (ScreenFader.Instance != null) yield return ScreenFader.Instance.FadeIn();
+
+        isTransitioning = false;
     }
 }

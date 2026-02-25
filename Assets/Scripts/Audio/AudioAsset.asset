@@ -21,5 +21,9 @@ MonoBehaviour:
   DrinkPotion: {fileID: 8300000, guid: e28c50b2f1d77f449bf9e50978e2a7d3, type: 3}
   FoodEaten: {fileID: 8300000, guid: 49b23998e97d597468b1cc32df117d89, type: 3}
   DamageReceived: {fileID: 8300000, guid: 29e10783c7d67e548a408a4fca82ed62, type: 3}
+  PopSound: {fileID: 8300000, guid: 195b234b4b6fd0942b48bd3fe8ea7f3b, type: 3}
+  DoorOpen: {fileID: 8300000, guid: 66b7098b476fdab47968ea14e527805e, type: 3}
+  DoorClose: {fileID: 8300000, guid: 62805fef99ad8cf49ba58406ed67f881, type: 3}
+  DefeatSound: {fileID: 8300000, guid: 9e5a5644a67476643988ef489fb8a073, type: 3}
   MusicVolume: 0.05
   BackgroundMusic: {fileID: 8300000, guid: cd6d2ab18496bd54384f146517265d23, type: 3}

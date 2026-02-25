@@ -8,7 +8,7 @@
         { "key": "ui.ending.title", "value": "¡Fin del juego!" },
         { "key": "ui.ending.desc", "value": "<color={t:damageColor}>¡Has gastado todos tus puntos de salud!</color>\n\nRecuerda usar comida y pociones para restaurar tus PV la próxima vez.\n\nPulsa <color={t:highlightColor}>ENTER</color> para reiniciar." },
         { "key": "ui.victory.title", "value": "¡Hasta luego!" },
-        { "key": "ui.victory.desc", "value": "<color={t:infoColor}>¡Gracias por comprar!</color>\n\nTu inventario y las existencias de la bruja permanecerán tal y como los dejaste para la próxima vez.\n\nPulsa <color={t:highlightColor}>ENTER</color> para reiniciar." },
+        { "key": "ui.victory.desc", "value": "<color={t:infoColor}>¡Gracias por comprar!</color>\n\nTu inventario y las existencias de la bruja permanecerán tal y como los dejaste, hasta que se cierre el juego.\n\nPulsa <color={t:highlightColor}>ENTER</color> para reiniciar." },
         { "key": "ui.button.start_game", "value": "Iniciar juego" },
         { "key": "ui.button.buy", "value": "Comprar" },
         { "key": "ui.button.buy.desc", "value": "Compra el artículo seleccionado de la <color={t:entityColor}>Tienda</color> por un <color={t:infoColor}>{0:P0}</color> de su valor. También puedes arrastrar y soltar el artículo directamente en el inventario del <color={t:entityColor}>Jugador</color>." },

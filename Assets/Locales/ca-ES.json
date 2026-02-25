@@ -8,7 +8,7 @@
         { "key": "ui.ending.title", "value": "Fi del joc!" },
         { "key": "ui.ending.desc", "value": "<color={t:damageColor}>Has gastat tots els teus punts de salut!</color>\n\nRecorda usar menjar i pocions per a restaurar els teus PV la pròxima vegada.\n\nPrem <color={t:highlightColor}>ENTER</color> per a reiniciar." },
         { "key": "ui.victory.title", "value": "Fins ara!" },
-        { "key": "ui.victory.desc", "value": "<color={t:infoColor}>Gràcies per comprar!</color>\n\nEl teu inventari i les existències de la bruixa romandran tal com els vas deixar per a la pròxima vegada.\n\nPrem <color={t:highlightColor}>ENTER</color> per a reiniciar." },
+        { "key": "ui.victory.desc", "value": "<color={t:infoColor}>Gràcies per comprar!</color>\n\nEl teu inventari i les existències de la bruixa romandran tal com els vas deixar, fins que es tanqui el joc.\n\nPrem <color={t:highlightColor}>ENTER</color> per a reiniciar." },
         { "key": "ui.button.start_game", "value": "Iniciar joc" },
         { "key": "ui.button.buy", "value": "Comprar" },
         { "key": "ui.button.buy.desc", "value": "Compra l'article seleccionat de la <color={t:entityColor}>Botiga</color> per un <color={t:infoColor}>{0:P0}</color> del seu valor. També pots arrossegar y deixar anar l'article directament en l'inventari del <color={t:entityColor}>Jugador</color>." },

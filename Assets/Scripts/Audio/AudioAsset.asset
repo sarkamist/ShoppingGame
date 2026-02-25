@@ -25,5 +25,5 @@ MonoBehaviour:
   DoorOpen: {fileID: 8300000, guid: 66b7098b476fdab47968ea14e527805e, type: 3}
   DoorClose: {fileID: 8300000, guid: 62805fef99ad8cf49ba58406ed67f881, type: 3}
   DefeatSound: {fileID: 8300000, guid: 9e5a5644a67476643988ef489fb8a073, type: 3}
-  MusicVolume: 0.05
+  MusicVolume: 0.2
   BackgroundMusic: {fileID: 8300000, guid: cd6d2ab18496bd54384f146517265d23, type: 3}

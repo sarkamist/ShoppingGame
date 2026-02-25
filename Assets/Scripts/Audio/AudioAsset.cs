@@ -19,6 +19,6 @@ public class AudioAsset : ScriptableObject
     public AudioClip DefeatSound;
 
     [Header("Music")]
-    [Range(0f, 1f)] public float MusicVolume = 0.05f;
+    [Range(0f, 1f)] public float MusicVolume = 0.2f;
     public AudioClip BackgroundMusic;
 }

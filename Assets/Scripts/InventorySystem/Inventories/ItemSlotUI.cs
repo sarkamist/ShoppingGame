@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ItemSlotUI : MonoBehaviour,
@@ -10,6 +9,7 @@ public class ItemSlotUI : MonoBehaviour,
 {
     public ItemSlot ItemSlotModel;
 
+    [Header("References")]
     public InventoryUI Inventory;
     public Image Image;
     public Image SelectedOverlay;
@@ -59,14 +59,21 @@ public class ItemSlotUI : MonoBehaviour,
         );
         object[] formatArgs = item.GetDescriptionFormatArgs();
         string cost = LocalizationManager.Instance.LocalizeWithFormat(
-            LocalizationManager.Instance.Data.ValueLineKey, new object[] { item.Value }
+            LocalizationManager.Instance.Data.ValueLineKey,
+            new object[] { item.Value }
         );
         if (item is Bauble junk)
         {
-            string junkKey = (junk.IsSoldAtBuyValue) ? LocalizationManager.Instance.Data.BaubleInfoTrueKey : LocalizationManager.Instance.Data.BaubleInfoFalseKey;
+            string junkKey = (junk.IsSoldAtBuyValue)
+                ? LocalizationManager.Instance.Data.BaubleInfoTrueKey
+                : LocalizationManager.Instance.Data.BaubleInfoFalseKey;
             cost += $"\n\n{LocalizationManager.Instance.Localize(junkKey)}";
         }
-        string description = $"{type}\n\n{cost}\n\n{LocalizationManager.Instance.LocalizeWithFormat(item.DescriptionKey, formatArgs)}";
+
+        string description = $"{type}\n\n"
+            + $"{cost}\n\n"
+            + $"{LocalizationManager.Instance.LocalizeWithFormat(item.DescriptionKey, formatArgs)}";
+
         tooltipRequestId = TooltipManager.Instance.Show(name, description);
     }
 
@@ -82,7 +89,12 @@ public class ItemSlotUI : MonoBehaviour,
         if (ItemSlotModel == null) return;
         if (ShopManager.Instance != null) ShopManager.Instance.ClearSelectedSlot();
 
-        Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, DragManager.Instance.DragAlpha);
+        Image.color = new Color(
+            Image.color.r,
+            Image.color.g,
+            Image.color.b,
+            DragManager.Instance.DragAlpha
+        );
         DragManager.Instance.Begin(ItemSlotModel.Item.Image, eventData.position);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.ItemGrab);
     }

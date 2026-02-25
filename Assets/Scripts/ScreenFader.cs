@@ -13,14 +13,9 @@ public class ScreenFader : MonoBehaviour
     private Canvas canvas;
     private CanvasGroup canvasGroup;
 
-    void Awake()
+    private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -30,27 +25,26 @@ public class ScreenFader : MonoBehaviour
         AttachToMainCamera();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         AttachToMainCamera();
     }
 
-    void AttachToMainCamera()
+    private void AttachToMainCamera()
     {
         Camera cam = Camera.main;
 
-        if (!cam || !canvas)
-            return;
+        if (!cam || !canvas) return;
 
         if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
         {
@@ -58,8 +52,14 @@ public class ScreenFader : MonoBehaviour
         }
     }
 
-    public IEnumerator FadeOut() => Fade(1f);
-    public IEnumerator FadeIn() => Fade(0f);
+    public IEnumerator FadeOut()
+    {
+        return Fade(1f);
+    }
+    public IEnumerator FadeIn()
+    {
+        return Fade(0f);
+    }
 
     private IEnumerator Fade(float target)
     {

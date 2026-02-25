@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   MaxSlots: 20
-  Slots: []
-  Coins: 0
+  Slots:
+  - Item: {fileID: 11400000, guid: 53ef874ebd658ad4a8cad90e416cd203, type: 2}
+    Amount: 1
+  - Item: {fileID: 11400000, guid: c665b30587c7aa04f85437665ceda110, type: 2}
+    Amount: 1
+  - Item: {fileID: 11400000, guid: 8953b1deaa7de984f813be2d34f684ad, type: 2}
+    Amount: 1
+  - Item: {fileID: 11400000, guid: 85cb82d9b1ae7294281e484f7a5a4d92, type: 2}
+    Amount: 4
+  Coins: 100

@@ -6,21 +6,23 @@ public class LanguageDropdown : MonoBehaviour
 {
     private TMP_Dropdown dropdown;
 
-    void Start()
+    private void Start()
     {
         if (!dropdown) dropdown = GetComponent<TMP_Dropdown>();
 
-        var lm = LocalizationManager.Instance;
+        LocalizationManager lm = LocalizationManager.Instance;
         dropdown.ClearOptions();
 
-        var options = new List<string>();
+        List<string> options = new();
         int currentIndex = 0;
 
         for (int i = 0; i < lm.Languages.Count; i++)
         {
             options.Add(lm.Languages[i].name);
             if (lm.Languages[i].code == lm.Data.CurrentLanguageCode)
+            {
                 currentIndex = i;
+            }
         }
 
         dropdown.AddOptions(options);

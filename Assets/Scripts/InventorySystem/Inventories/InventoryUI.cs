@@ -27,7 +27,7 @@ public class InventoryUI : MonoBehaviour
 
     public Action OnItemSlotPointerClick;
 
-    void Start()
+    private void Start()
     {
         image = GetComponent<Image>();
 

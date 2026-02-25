@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Refill Shop
+  m_text: 'Refill the Shop
 
 '
   m_isRightToLeft: 0
@@ -1211,11 +1211,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.5
+  m_fontSize: 22.5
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 16
   m_fontSizeMax: 28
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -1473,17 +1473,11 @@ MonoBehaviour:
   ErrorFlickerColor: {r: 0.5450981, g: 0, b: 0, a: 1}
   MerchantNameKey: ui.tooltip.merchant.name
   MerchantDescriptionKey: ui.tooltip.merchant.desc
-  BuyNameKey: ui.button.buy
   BuyDescriptionKey: ui.button.buy.desc
-  SellNameKey: ui.button.sell
   SellDescriptionKey: ui.button.sell.desc
-  UseNameKey: ui.button.use_item
   UseDescriptionKey: ui.button.use_item.desc
-  LeaveShopNameKey: ui.button.leave_shop
   LeaveShopDescriptionKey: ui.button.leave_shop.desc
-  SearchLootNameKey: ui.button.search_loot
   SearchLootDescriptionKey: ui.button.search_loot.desc
-  RefillShopNameKey: ui.button.refill_shop
   RefillShopDescriptionKey: ui.button.refill_shop.desc
   Player: {fileID: 523666844}
   PlayerInventoryUI: {fileID: 1971635132}
@@ -2238,10 +2232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b2bd5bec1b4df438b6e51a48430987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  NameText: {fileID: 1835864593}
-  DescriptionText: {fileID: 1483728228}
   ScreenOffset: {x: 40, y: -60}
   EdgePadding: 8
+  NameText: {fileID: 1835864593}
+  DescriptionText: {fileID: 1483728228}
 --- !u!1 &827637566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,7 +3493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ce4b0726cdaffb43b360b3012816fd0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb65d194e4f6f4741acea43ecb7704b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5627,7 +5621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000091552734}
+  m_AnchoredPosition: {x: 0, y: -0.00002670288}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1778100640
@@ -6400,8 +6394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -675, y: -395}
-  m_SizeDelta: {x: 250, y: 75}
+  m_AnchoredPosition: {x: -660, y: -395}
+  m_SizeDelta: {x: 275, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910390211
 MonoBehaviour:

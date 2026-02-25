@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class Inventory : ScriptableObject
 {
-    
     public int MaxSlots = 4;
     public List<ItemSlot> Slots;
-    public int UsedSlots => Slots.Count;
     public int Coins;
+
+    public int UsedSlots => Slots.Count;
 
     public Action OnInventoryChange;
     public Action OnCoinChange;
@@ -21,7 +21,7 @@ public class Inventory : ScriptableObject
         bool success = false;
         var slot = GetSlot(item);
 
-        if ((slot != null))
+        if (slot != null)
         {
             slot.AddOne();
 

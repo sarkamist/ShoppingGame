@@ -4,10 +4,10 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CursorState { Normal = 0, Attack = 5, Drag = 10 }
-
 public class CursorManager : MonoBehaviour
 {
+    public enum CursorState { Normal = 0, Attack = 5, Drag = 10 }
+
     public static CursorManager Instance { get; private set; }
 
     public Sprite NormalSprite;
@@ -19,7 +19,7 @@ public class CursorManager : MonoBehaviour
     private RectTransform rectTransform;
     private Image image;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
@@ -28,14 +28,16 @@ public class CursorManager : MonoBehaviour
         if (rectTransform == null) rectTransform = (RectTransform) transform;
         if (image == null) image = GetComponentInParent<Image>();
 
-        activeStates = new HashSet<CursorState>();
-        activeStates.Add(CursorState.Normal);
+        activeStates = new HashSet<CursorState>
+        {
+            CursorState.Normal
+        };
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
     }
 
-    void Update()
+    private void Update()
     {
         if (!canvas) return;
 
@@ -58,18 +60,17 @@ public class CursorManager : MonoBehaviour
         if (canvas.renderMode != RenderMode.ScreenSpaceOverlay)
             cam = canvas.worldCamera;
 
-        Vector2 localPoint;
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 canvasRect,
                 Input.mousePosition,
                 cam,
-                out localPoint))
+                out Vector2 localPoint))
         {
             rectTransform.anchoredPosition = localPoint;
         }
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         Cursor.visible = true;
     }

@@ -26,7 +26,10 @@ public class DragManager : MonoBehaviour
     {
         if (ghostImage != null) return;
 
-        GameObject ghostObject = Instantiate(GhostImagePrefab, (RectTransform) transform);
+        GameObject ghostObject = Instantiate(
+            GhostImagePrefab,
+            (RectTransform) transform
+        );
         ghostRectTransform = ghostObject.GetComponent<RectTransform>();
         ghostImage = ghostObject.GetComponent<Image>();
 
@@ -35,12 +38,17 @@ public class DragManager : MonoBehaviour
 
     public void Begin(Sprite sprite, Vector2 screenPos)
     {
-        CursorManager.Instance.AddState(CursorState.Drag);
+        CursorManager.Instance.AddState(CursorManager.CursorState.Drag);
 
         SetupGhostImage();
 
         ghostImage.sprite = sprite;
-        ghostImage.color = new Color(ghostImage.color.r, ghostImage.color.g, ghostImage.color.b, DragAlpha);
+        ghostImage.color = new Color(
+            ghostImage.color.r,
+            ghostImage.color.g,
+            ghostImage.color.b,
+            DragAlpha
+        );
 
         Move(screenPos);
         ghostRectTransform.gameObject.SetActive(true);
@@ -50,7 +58,9 @@ public class DragManager : MonoBehaviour
     {
         if (ghostRectTransform == null || canvas == null) return;
 
-        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay
+            ? null
+            : canvas.worldCamera;
 
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
             (RectTransform) canvas.transform, screenPos, cam, out var localPoint)
@@ -62,7 +72,7 @@ public class DragManager : MonoBehaviour
 
     public void Hide()
     {
-        CursorManager.Instance.RemoveState(CursorState.Drag);
+        CursorManager.Instance.RemoveState(CursorManager.CursorState.Drag);
         if (ghostRectTransform != null) ghostRectTransform.gameObject.SetActive(false);
     }
 }

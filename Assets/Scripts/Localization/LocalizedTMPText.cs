@@ -13,7 +13,7 @@ public class LocalizedTMPText : MonoBehaviour
         if (tmpText == null) tmpText = GetComponent<TMP_Text>();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         if (LocalizationManager.Instance != null)
         {
@@ -22,7 +22,7 @@ public class LocalizedTMPText : MonoBehaviour
         }
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         if (LocalizationManager.Instance != null)
         {

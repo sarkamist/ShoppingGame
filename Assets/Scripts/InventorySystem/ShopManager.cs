@@ -33,7 +33,6 @@ public class ShopManager : MonoBehaviour
     public string SearchLootDescriptionKey;
     public string RefillShopDescriptionKey;
     
-
     [Header("References")]
     public Player Player;
     public InventoryUI PlayerInventoryUI;
@@ -86,9 +85,18 @@ public class ShopManager : MonoBehaviour
 
     public void UpdateShopButtons()
     {
-        BuyButton.interactable = (selectedSlotUI != null && selectedSlotUI.Inventory == ShopInventoryUI);
-        SellButton.interactable = (selectedSlotUI != null && selectedSlotUI.Inventory == PlayerInventoryUI);
-        UseButton.interactable = (selectedSlotUI != null && selectedSlotUI.Inventory == PlayerInventoryUI);
+        BuyButton.interactable = (
+            selectedSlotUI != null
+            && selectedSlotUI.Inventory == ShopInventoryUI
+        );
+        SellButton.interactable = (
+            selectedSlotUI != null
+            && selectedSlotUI.Inventory == PlayerInventoryUI
+        );
+        UseButton.interactable = (
+            selectedSlotUI != null
+            && selectedSlotUI.Inventory == PlayerInventoryUI
+        );
     }
 
     public void OnBuyClick()
@@ -299,7 +307,6 @@ public class ShopManager : MonoBehaviour
         {
             if (rdm < entry.weight)
             {
-                Debug.Log(rdm);
                 return entry.item;
             }
 

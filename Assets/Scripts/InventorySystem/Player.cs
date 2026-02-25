@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class Player : MonoBehaviour, IConsume, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class Player : MonoBehaviour,
+    IConsume, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public Inventory Inventory;
 
@@ -100,7 +101,9 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler, IPointerEnt
                 }
                 else
                 {
-                    ShopManager.Instance.PlayerInventoryUI.StartInventoryFlicker(ShopManager.Instance.ErrorFlickerColor);
+                    ShopManager.Instance.PlayerInventoryUI.StartInventoryFlicker(
+                        ShopManager.Instance.ErrorFlickerColor
+                    );
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.Error);
                     return false;
                 }
@@ -114,7 +117,10 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler, IPointerEnt
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Data.FoodEaten);
         }
 
-        CurrentHealth = Mathf.Clamp(CurrentHealth + consumable.CurrentHealthIncrease, 0f, MaxHealth);
+        CurrentHealth = Mathf.Clamp(
+            CurrentHealth + consumable.CurrentHealthIncrease,
+            0f, MaxHealth
+        );
 
         return true;
     }
@@ -145,12 +151,12 @@ public class Player : MonoBehaviour, IConsume, IPointerClickHandler, IPointerEnt
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        CursorManager.Instance.AddState(CursorState.Attack);
+        CursorManager.Instance.AddState(CursorManager.CursorState.Attack);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        CursorManager.Instance.RemoveState(CursorState.Attack);
+        CursorManager.Instance.RemoveState(CursorManager.CursorState.Attack);
     }
 
     public void StartHealthBarFlicker()

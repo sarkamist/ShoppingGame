@@ -6,13 +6,13 @@ public class TooltipManager : MonoBehaviour
 {
     public static TooltipManager Instance { get; private set; }
 
-    [Header("References")]
-    public TextMeshProUGUI NameText;
-    public TextMeshProUGUI DescriptionText;
-
     [Header("Positioning")]
     public Vector2 ScreenOffset = new Vector2(12f, -12f);
     public float EdgePadding = 8f;
+
+    [Header("References")]
+    public TextMeshProUGUI NameText;
+    public TextMeshProUGUI DescriptionText;
 
     private Canvas canvas;
     private RectTransform rectTransform;

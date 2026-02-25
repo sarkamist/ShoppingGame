@@ -1,13 +1,13 @@
-// Interface for consumable item, implements Use()
 using System;
 using System.Collections.Generic;
 
+// Interface for consumable item, implements Use()
 public interface IConsume
 {
     bool Use(BaseConsumableItem item);
 }
 
-// Marker attrbiute for non-transferable items
+// Marker attribute for non-transferable items
 [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
 public sealed class NonTransferableItem : Attribute
 {
@@ -18,6 +18,7 @@ public static class InventoryUtilities
 {
     private static readonly Dictionary<Type, bool> nonTransferableRegister = new();
 
+    // Extended method to check for marker attribute for non-transferable items
     public static bool IsNonTransferable(this BaseItem item)
     {
         if (item == null) return false;
@@ -25,7 +26,9 @@ public static class InventoryUtilities
         var t = item.GetType();
 
         if (nonTransferableRegister.TryGetValue(t, out bool registered))
+        {
             return registered;
+        }
 
         bool isNonTransferableItem = Attribute.IsDefined(t, typeof(NonTransferableItem), inherit: true);
         nonTransferableRegister[t] = isNonTransferableItem;

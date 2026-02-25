@@ -1,1 +1,72 @@
-Place here all the licenses for your assets:
+
+
+###############################################################################
+
+	Executable Icons
+		© 2026 Laia Campos Carrillo
+		License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+		License URL: https://creativecommons.org/licenses/by/4.0/
+
+###############################################################################
+
+	Scene Menu Backgrounds
+		© 2026 Luca de Marco Grases
+		License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+		License URL: https://creativecommons.org/licenses/by/4.0/
+
+###############################################################################
+
+	Character Art
+		© 2026 Laia Campos Carrillo
+		License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+		License URL: https://creativecommons.org/licenses/by/4.0/
+
+###############################################################################
+
+	UI Buttons
+		© 2026 Laia Campos Carrillo
+		License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+		License URL: https://creativecommons.org/licenses/by/4.0/
+
+###############################################################################
+
+	UI Elements
+		© 2026 Luca de Marco Grases
+		License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+		License URL: https://creativecommons.org/licenses/by/4.0/
+
+###############################################################################
+
+	Item Sprites
+		© 2026 Luca de Marco Grases
+		License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+		License URL: https://creativecommons.org/licenses/by/4.0/
+
+###############################################################################
+
+	Background Shop Music
+		© 2026 Luca de Marco Grases
+		License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+		License URL: https://creativecommons.org/licenses/by/4.0/
+
+###############################################################################
+
+	UI Sound Effects
+		© 2026 Luca de Marco Grases
+		License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+		License URL: https://creativecommons.org/licenses/by/4.0/
+
+###############################################################################
+
+	Font used in this project: Dogica Pixel
+
+		Author: Dogica
+		Source: https://www.patreon.com/posts/0348-dogica-79067333
+		License: Free for personal and commercial. OFL.
+
+		Note:
+		Credit / attribution not required for raster works.
+		It is required whit distribution or modification.
+		[ Dogica name is reserved ]
+
+###############################################################################

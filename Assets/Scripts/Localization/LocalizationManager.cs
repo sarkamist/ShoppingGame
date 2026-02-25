@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Security.Principal;
 using UnityEngine;
 
 public class LocalizationManager : MonoBehaviour
@@ -16,12 +15,11 @@ public class LocalizationManager : MonoBehaviour
     private Dictionary<string, string> tokenMap = new Dictionary<string, string>();
     private Dictionary<string, string> currentTable = new Dictionary<string, string>();
     
-
     public IReadOnlyList<(string code, string name)> Languages => languages;
 
     public event Action OnLanguageChanged;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
@@ -35,14 +33,14 @@ public class LocalizationManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         OnLanguageChanged?.Invoke();
     }
 
     public bool SetLanguage(string code, bool notify = true)
     {
-        if (!tablesByCode.TryGetValue(code, out var table))
+        if (!tablesByCode.TryGetValue(code, out Dictionary<string, string> table))
         {
             Debug.LogWarning($"Localization: Unknown language code '{code}'.");
             return false;
@@ -61,21 +59,32 @@ public class LocalizationManager : MonoBehaviour
 
         string raw;
 
-        if (currentTable != null && currentTable.TryGetValue(key, out var v))
+        if (currentTable != null && currentTable.TryGetValue(key, out string v))
+        {
             raw = v;
-        else if (!string.IsNullOrEmpty(Data.FallbackLanguageCode) &&
-                 tablesByCode.TryGetValue(Data.FallbackLanguageCode, out var fb) &&
-                 fb.TryGetValue(key, out var fv))
+        }
+        else if (
+            !string.IsNullOrEmpty(Data.FallbackLanguageCode)
+            && tablesByCode.TryGetValue(
+                Data.FallbackLanguageCode,
+                out Dictionary<string, string> fb
+            )
+            && fb.TryGetValue(key, out string fv)
+        )
+        {
             raw = fv;
+        }
         else
+        {
             raw = $"#{key}";
+        }
 
         return ApplyTokens(raw);
     }
 
     public string LocalizeWithFormat(string key, params object[] args)
     {
-        var raw = Localize(key);
+        string raw = Localize(key);
         try { return string.Format(FormatProvider, raw, args); }
         catch { return raw; }
     }
@@ -85,7 +94,7 @@ public class LocalizationManager : MonoBehaviour
         languages.Clear();
         tablesByCode.Clear();
 
-        foreach (var loc in Data.Locales)
+        foreach (LocalizationAsset.LocaleAsset loc in Data.Locales)
         {
             if (loc?.json == null) continue;
 
@@ -100,9 +109,10 @@ public class LocalizationManager : MonoBehaviour
                 continue;
             }
 
-            if (parsed == null || parsed.data == null ||
-                string.IsNullOrEmpty(parsed.data.code) ||
-                string.IsNullOrEmpty(parsed.data.name))
+            if (
+                parsed == null || parsed.data == null
+                || string.IsNullOrEmpty(parsed.data.code)
+                || string.IsNullOrEmpty(parsed.data.name))
             {
                 Debug.LogWarning($"Localization: Invalid locale file '{loc.json.name}' (missing meta).");
                 continue;
@@ -114,8 +124,8 @@ public class LocalizationManager : MonoBehaviour
                 continue;
             }
 
-            var table = new Dictionary<string, string>(parsed.entries.Count);
-            foreach (var e in parsed.entries)
+            Dictionary<string, string> table = new Dictionary<string, string>(parsed.entries.Count);
+            foreach (LocalizationAsset.Entry e in parsed.entries)
             {
                 if (e == null || string.IsNullOrEmpty(e.key)) continue;
                 table[e.key] = e.value ?? "";
@@ -127,14 +137,14 @@ public class LocalizationManager : MonoBehaviour
 
         if (languages.Count == 0)
         {
-            Debug.LogError("Localization: No locale JSONs assigned/loaded. Assign them in LocalizationManager inspector.");
+            Debug.LogError("Localization: No locales could be found/loaded.");
         }
     }
 
     private void BuildTokenMap()
     {
         tokenMap = new Dictionary<string, string>(StringComparer.Ordinal);
-        foreach (var t in Data.LocalizationTokens)
+        foreach (LocalizationAsset.LocalizationToken t in Data.LocalizationTokens)
         {
             if (string.IsNullOrWhiteSpace(t.key)) continue;
             tokenMap[t.key.Trim()] = t.value ?? "";
@@ -147,7 +157,7 @@ public class LocalizationManager : MonoBehaviour
         if (tokenMap == null) BuildTokenMap();
         if (tokenMap.Count == 0) return input;
 
-        foreach (var kv in tokenMap)
+        foreach (KeyValuePair<string, string> kv in tokenMap)
         {
             string token = "{t:" + kv.Key + "}";
             input = input.Replace(token, kv.Value);
@@ -168,7 +178,9 @@ public sealed class LocalizationFormatProvider : IFormatProvider, ICustomFormatt
 
     public object GetFormat(Type formatType)
     {
-        return formatType == typeof(ICustomFormatter) ? this : fallbackFormatProvider.GetFormat(formatType);
+        return formatType == typeof(ICustomFormatter)
+            ? this
+            : fallbackFormatProvider.GetFormat(formatType);
     }
 
     public string Format(string format, object arg, IFormatProvider formatProvider)
@@ -177,14 +189,14 @@ public sealed class LocalizationFormatProvider : IFormatProvider, ICustomFormatt
 
         if (string.IsNullOrEmpty(format)) return FormatFallback(null, arg);
 
-        var parts = format.Split(':');
+        string[] parts = format.Split(':');
 
         bool applyAbs = false;
         string nativeFormat = null;
 
         for (int i = 0; i < parts.Length; i++)
         {
-            var part = parts[i].Trim();
+            string part = parts[i].Trim();
 
             if (part.Equals("ABS", StringComparison.OrdinalIgnoreCase))
             {
@@ -196,8 +208,7 @@ public sealed class LocalizationFormatProvider : IFormatProvider, ICustomFormatt
                 nativeFormat = part;
         }
 
-        if (applyAbs)
-            arg = ApplyAbs(arg);
+        if (applyAbs) arg = ApplyAbs(arg);
 
         return FormatFallback(nativeFormat, arg);
     }
@@ -206,8 +217,8 @@ public sealed class LocalizationFormatProvider : IFormatProvider, ICustomFormatt
     {
         return arg switch
         {
-            sbyte v => (sbyte)Math.Abs(v),
-            short v => (short)Math.Abs(v),
+            sbyte v => (sbyte) Math.Abs(v),
+            short v => (short) Math.Abs(v),
             int v => Math.Abs(v),
             long v => Math.Abs(v),
 
@@ -222,7 +233,9 @@ public sealed class LocalizationFormatProvider : IFormatProvider, ICustomFormatt
     private string FormatFallback(string format, object arg)
     {
         if (arg is IFormattable f)
+        {
             return f.ToString(format, fallbackFormatProvider);
+        }
 
         return arg.ToString();
     }

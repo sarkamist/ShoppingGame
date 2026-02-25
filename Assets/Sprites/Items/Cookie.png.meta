@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fef654a94045de142ac983d5bf2b8195
+guid: 12ec685e41ef7f04e81fd78a6918bf35
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7663256970462078997
-    second: Cookie_0
+      213: -8274002926625358399
+    second: cookie-item_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cookie_0
+      name: cookie-item_0
       rect:
         serializedVersion: 2
         x: 19
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 518adeaec9b595a60800000000000000
-      internalID: 7663256970462078997
+      spriteID: 1cdf3fffc26dc2d80800000000000000
+      internalID: -8274002926625358399
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cookie_0: 7663256970462078997
+      cookie-item_0: -8274002926625358399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

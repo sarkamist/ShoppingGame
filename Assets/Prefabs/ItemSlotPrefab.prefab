@@ -142,8 +142,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xD79"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b2410ffc06966646a6a98bfda2af73b, type: 2}
-  m_sharedMaterial: {fileID: -4566869796255675030, guid: 5b2410ffc06966646a6a98bfda2af73b,
+  m_fontAsset: {fileID: 11400000, guid: 15f99587f3bbb5b40af11e45196fef97, type: 2}
+  m_sharedMaterial: {fileID: -4566869796255675030, guid: 15f99587f3bbb5b40af11e45196fef97,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

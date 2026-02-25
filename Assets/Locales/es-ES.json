@@ -21,7 +21,7 @@
         { "key": "ui.button.search_loot", "value": "Buscar botín" },
         { "key": "ui.button.search_loot.desc", "value": "Busca en tus bolsillos mágicos <color={t:highlightColor}>Cachivaches</color> ponderados aleatoriamente que puedas vender. Esto fallará si no quedan ranuras válidas en el inventario del <color={t:entityColor}>Jugador</color>." },
         { "key": "ui.button.refill_shop", "value": "Reponer la tienda" },
-        { "key": "ui.button.refill_shop.desc", "value": "Busca <color={t:highlightColor}>Comidas</color>, <color={t:highlightColor}>Pociones</color> o <color={t:highlightColor}>Armas</color> ponderados aleatoriamente en el inventario de la <color={t:entityColor}>Tienda</color>. Esto fallará si no quedan ranuras válidos en el inventario de la <color={t:entityColor}>Tienda</color>." },
+        { "key": "ui.button.refill_shop.desc", "value": "Busca <color={t:highlightColor}>Comidas</color>, <color={t:highlightColor}>Pociones</color> o <color={t:highlightColor}>Armas</color> ponderados aleatoriamente en el inventario de la <color={t:entityColor}>Tienda</color>. Esto fallará si no quedan ranuras válidas en el inventario de la <color={t:entityColor}>Tienda</color>." },
         { "key": "ui.tooltip.merchant.name", "value": "La Bruja" },
         { "key": "ui.tooltip.merchant.desc", "value": "¡Buenos días! Estoy dispuesta a vender artículos de mi inventario por el <color={t:infoColor}>{0:P0}</color> de su valor y comprar artículos de tu inventario por el <color={t:infoColor}>{1:P0}</color> de su valor." },
         { "key": "ui.tooltip.type_line", "value": "<align=center><color={t:highlightColor}>• {0} •</color></align>" },

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2dc011bf5d5f7b64b9f17ff055271e3c
+guid: a1a90abfb9e7db14ea65cf56a2b1742d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -444365142546852192
-    second: empty-potion-item_0
+      213: 1343279397054425284
+    second: EmptyPotion_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: empty-potion-item_0
+      name: EmptyPotion_0
       rect:
         serializedVersion: 2
         x: 39
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a6dde7d14c45d9f0800000000000000
-      internalID: -444365142546852192
+      spriteID: 4c8a78f9e7944a210800000000000000
+      internalID: 1343279397054425284
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      empty-potion-item_0: -444365142546852192
+      EmptyPotion_0: 1343279397054425284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

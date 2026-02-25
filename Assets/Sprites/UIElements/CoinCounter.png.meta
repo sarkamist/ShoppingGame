@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bb9b97699d9646e4fb6ff3b9e7193aac
+guid: 2a58ae70036ffe04d8ca23daaa6833f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5750830885412260613
-    second: coin-counter_0
+      213: -1682829490361750242
+    second: CoinCounter_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coin-counter_0
+      name: CoinCounter_0
       rect:
         serializedVersion: 2
         x: 99
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50bc758983e0fcf40800000000000000
-      internalID: 5750830885412260613
+      spriteID: e1daf699e7365a8e0800000000000000
+      internalID: -1682829490361750242
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coin-counter_0: 5750830885412260613
+      CoinCounter_0: -1682829490361750242
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

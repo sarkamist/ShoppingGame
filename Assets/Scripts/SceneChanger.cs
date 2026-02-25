@@ -49,6 +49,14 @@ public class SceneChanger : MonoBehaviour
         }
     }
 
+    public void OnHealthBarDepleted()
+    {
+        if (CurrentScene == gameplayScene)
+        {
+            SceneManager.LoadScene(endingScene);
+        }
+    }
+
     private void OnExitGame()
     {
 #if UNITY_EDITOR

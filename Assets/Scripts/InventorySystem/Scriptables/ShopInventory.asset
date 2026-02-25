@@ -26,4 +26,4 @@ MonoBehaviour:
     Amount: 1
   - Item: {fileID: 11400000, guid: 25263aebbdf76c14abf68b0e7e4d3016, type: 2}
     Amount: 1
-  Coins: 5030
+  Coins: 5000

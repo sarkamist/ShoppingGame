@@ -1570,8 +1570,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The Witch's Shop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b423ae2fa3b5a38449c2e9cba67419dc, type: 2}
-  m_sharedMaterial: {fileID: 584002005482612512, guid: b423ae2fa3b5a38449c2e9cba67419dc,
+  m_fontAsset: {fileID: 11400000, guid: b623c89fb23aebb4cadd0de027b560d4, type: 2}
+  m_sharedMaterial: {fileID: 584002005482612512, guid: b623c89fb23aebb4cadd0de027b560d4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1812,8 +1812,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Espa\xF1ol (Espa\xF1a)\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b2410ffc06966646a6a98bfda2af73b, type: 2}
-  m_sharedMaterial: {fileID: -4566869796255675030, guid: 5b2410ffc06966646a6a98bfda2af73b,
+  m_fontAsset: {fileID: 11400000, guid: 15f99587f3bbb5b40af11e45196fef97, type: 2}
+  m_sharedMaterial: {fileID: -4566869796255675030, guid: 15f99587f3bbb5b40af11e45196fef97,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2090,8 +2090,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Option A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b2410ffc06966646a6a98bfda2af73b, type: 2}
-  m_sharedMaterial: {fileID: -4566869796255675030, guid: 5b2410ffc06966646a6a98bfda2af73b,
+  m_fontAsset: {fileID: 11400000, guid: 15f99587f3bbb5b40af11e45196fef97, type: 2}
+  m_sharedMaterial: {fileID: -4566869796255675030, guid: 15f99587f3bbb5b40af11e45196fef97,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2829,8 +2829,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b2410ffc06966646a6a98bfda2af73b, type: 2}
-  m_sharedMaterial: {fileID: -4566869796255675030, guid: 5b2410ffc06966646a6a98bfda2af73b,
+  m_fontAsset: {fileID: 11400000, guid: 15f99587f3bbb5b40af11e45196fef97, type: 2}
+  m_sharedMaterial: {fileID: -4566869796255675030, guid: 15f99587f3bbb5b40af11e45196fef97,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
